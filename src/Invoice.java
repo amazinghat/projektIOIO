@@ -1,6 +1,6 @@
 /**
  * Created by Administrator on 2017-04-11.
  */
-public class Display {
+public class Invoice {
 
 }
