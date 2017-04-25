@@ -12,23 +12,39 @@ public class AddInvoice {
     private JComboBox clientList;
     private JComboBox typeBList;
     private JComboBox typeAList;
-    private JTextField amountField;
     private JTextField valueField;
     private JTextField taxField;
     private JButton addButton;
-    private JButton generateButton;
     private JLabel idLabel;
+    private JSpinner amountSpinner;
 
     public AddInvoice() {
-        // Dodawanie elementow do listy wybieranej
-        clientList.addItem("asd");
+        // Lista Klientów
+        // Dodawanie elementow do listy w GUI
+        // To może być wczytywane z pliku później, albo z bazy jakiejś
+        clientList.addItem("[1] Ktos tam");
+        clientList.addItem("[2] Ktos tam inny");
+        clientList.addItem("[3] Ktos tam całkiem inny");
 
+
+        // Automatyczne generowanie numeru faktury na początku
+        // Oraz stworzenie nowego obiektu faktury
+        // Może od potem zostać zapisany do pliku(Invoice.saveToFile) lub bazy(Invoice.write)
         Invoice invoice = new Invoice();
+        idLabel.setText(invoice.generateNumber());
 
-        generateButton.addActionListener(new ActionListener() {
+        addButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                idLabel.setText(invoice.generateNumber());
+                invoice.setProduct(productField.getText());
+                invoice.setAmount((int) amountSpinner.getValue());
+                invoice.setValue(Float.parseFloat(valueField.getText()));
+                invoice.setTax(Float.parseFloat(taxField.getText()));
+                invoice.setClientid(clientList.getSelectedIndex());
+                invoice.setTypeA((String) typeAList.getSelectedItem());
+                invoice.setTypeB((String) typeBList.getSelectedItem());
+
+                invoice.saveToFile();
             }
         });
     }

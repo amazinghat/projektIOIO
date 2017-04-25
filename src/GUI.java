@@ -23,7 +23,6 @@ public class GUI {
             public void actionPerformed(ActionEvent e) {
                 JFrame frame = new JFrame("GUI");
                 frame.setContentPane(new AddInvoice().getInvoice());
-                frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
                 frame.pack();
                 frame.setVisible(true);
             }
