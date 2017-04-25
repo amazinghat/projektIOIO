@@ -21,7 +21,7 @@ public class Invoice {
    }
 
    public void write(){
-       
+
    }
 
 }
