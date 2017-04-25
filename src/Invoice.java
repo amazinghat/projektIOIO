@@ -11,9 +11,10 @@ public class Invoice {
    private float tax;
    private int clientid;
 
-   public int generateNumber(){
+   public String generateNumber(){
+       id = String.valueOf(System.currentTimeMillis());
 
-       return 0;
+       return id;
    }
 
    public void saveToFile(){
