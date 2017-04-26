@@ -1,4 +1,6 @@
-import java.io.*;
+import java.io.FileNotFoundException;
+import java.io.PrintWriter;
+import java.io.File;
 
 /**
  * Created by Administrator on 2017-04-11.
@@ -44,19 +46,11 @@ public class Invoice {
    public String generateNumber(){
        id = String.valueOf(System.currentTimeMillis());
 
-
        return id;
    }
 
    public void saveToFile(){
-      PrintWriter pw = null;
-      try {
-         pw = new PrintWriter("invoice.txt");
-      } catch (FileNotFoundException e) {
-         e.printStackTrace();
-      }
-      pw.write("asd");
-
+      new Communication().send(product, amount, value, tax, clientid, typeA, typeB, id);
    }
 
    public void write(){
