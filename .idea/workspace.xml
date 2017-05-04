@@ -2,19 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="9cc2388c-42a0-45c2-b8ac-741fc8806db0" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/invoice.txt" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/IOIO/AddInvoice$1.class" afterPath="$PROJECT_DIR$/out/production/IOIO/AddInvoice$1.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/IOIO/AddInvoice.class" afterPath="$PROJECT_DIR$/out/production/IOIO/AddInvoice.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/IOIO/GUI$1.class" afterPath="$PROJECT_DIR$/out/production/IOIO/GUI$1.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/IOIO/GUI.class" afterPath="$PROJECT_DIR$/out/production/IOIO/GUI.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/IOIO/Invoice.class" afterPath="$PROJECT_DIR$/out/production/IOIO/Invoice.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/IOIO.iml" afterPath="$PROJECT_DIR$/IOIO.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/AddInvoice.java" afterPath="$PROJECT_DIR$/src/AddInvoice.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Communication.java" afterPath="$PROJECT_DIR$/src/Communication.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/GUI.java" afterPath="$PROJECT_DIR$/src/GUI.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Invoice.java" afterPath="$PROJECT_DIR$/src/Invoice.java" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
