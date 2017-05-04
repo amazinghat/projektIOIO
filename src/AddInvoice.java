@@ -2,12 +2,14 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.WindowEvent;
 import java.io.FileNotFoundException;
 
 /**
  * Created by Administrator on 2017-04-25.
  */
 public class AddInvoice {
+    private JFrame jframe;
     private JPanel Invoice;
     private JTextField productField;
     private JComboBox clientList;
@@ -19,7 +21,8 @@ public class AddInvoice {
     private JLabel idLabel;
     private JSpinner amountSpinner;
 
-    public AddInvoice() {
+    public AddInvoice(JFrame frame) {
+        this.jframe = frame;
         // Lista Klientów
         // Dodawanie elementow do listy w GUI
         // To może być wczytywane z pliku później, albo z bazy jakiejś
@@ -46,6 +49,8 @@ public class AddInvoice {
                 idLabel.setText(invoice.generateNumber());
 
                 invoice.saveToFile();
+
+                jframe.dispatchEvent(new WindowEvent(jframe, WindowEvent.WINDOW_CLOSING));
             }
         });
     }

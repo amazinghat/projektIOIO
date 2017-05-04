@@ -10,6 +10,7 @@ import java.io.PrintWriter;
 public class GUI {
     private JButton addInvoice;
     private JPanel GUI;
+    private JButton display;
 
     /*
 
@@ -23,8 +24,18 @@ public class GUI {
         addInvoice.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                JFrame frame = new JFrame("GUI");
-                frame.setContentPane(new AddInvoice().getInvoice());
+                JFrame frame = new JFrame("Dodawanie faktur/paragonów");
+                frame.setContentPane(new AddInvoice(frame).getInvoice());
+                frame.pack();
+                frame.setVisible(true);
+            }
+        });
+
+        display.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                JFrame frame = new JFrame("Wyświetlanie");
+                frame.setContentPane(new Display().getPanel1());
                 frame.pack();
                 frame.setVisible(true);
             }
@@ -32,7 +43,7 @@ public class GUI {
     }
 
     public static void main(String[] args) {
-        JFrame frame = new JFrame("GUI");
+        JFrame frame = new JFrame("Program Kiegowy");
         frame.setContentPane(new GUI().GUI);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.pack();
