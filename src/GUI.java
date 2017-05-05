@@ -35,12 +35,10 @@ public class GUI {
         display.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                GraphicsDevice device = GraphicsEnvironment
-                        .getLocalGraphicsEnvironment().getScreenDevices()[0];
                 JFrame frame = new JFrame("Wyświetlanie");
                 frame.setContentPane(new Display(frame).getPanel1());
-                frame.pack();
-                device.setFullScreenWindow(frame);
+                frame.setExtendedState(JFrame.MAXIMIZED_BOTH);
+                frame.setUndecorated(true);
                 frame.setVisible(true);
             }
         });
