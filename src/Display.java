@@ -17,10 +17,16 @@ public class Display {
 
     public Display(JFrame frame) {
         jframe = frame;
+        table1.setRowSelectionAllowed(true);
         String data[][] = new Communication().receive();
         String[] column = {"Product", "Amount", "Value", "Tax", "ClientID", "TypeA", "TypeB", "Number"};
 
-        DefaultTableModel model = new DefaultTableModel(data, column);
+        DefaultTableModel model = new DefaultTableModel(data, column){
+            @Override
+            public boolean isCellEditable(int row, int column){
+                return false;
+            }
+        };
         table1.setModel(model);
         panel1.setLayout(new BorderLayout());
         panel1.add(table1, BorderLayout.CENTER);
