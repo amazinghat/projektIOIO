@@ -1,4 +1,5 @@
 import javax.swing.*;
+import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.FileNotFoundException;
@@ -34,9 +35,12 @@ public class GUI {
         display.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                GraphicsDevice device = GraphicsEnvironment
+                        .getLocalGraphicsEnvironment().getScreenDevices()[0];
                 JFrame frame = new JFrame("Wyświetlanie");
-                frame.setContentPane(new Display().getPanel1());
+                frame.setContentPane(new Display(frame).getPanel1());
                 frame.pack();
+                device.setFullScreenWindow(frame);
                 frame.setVisible(true);
             }
         });

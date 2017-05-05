@@ -1,7 +1,4 @@
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.SQLException;
-import java.sql.Statement;
+import java.sql.*;
 
 /**
  * Created by Administrator on 2017-04-11.
@@ -45,9 +42,49 @@ public class Communication {
         }
     }
 
-    public String receive(){
+    public String[][] receive(){
+        String url = "jdbc:mysql://mysql.agh.edu.pl:3306/";
+        String dbName = "jszczerb";
+        String driver = "com.mysql.jdbc.Driver";
+        String userName = "jszczerb";
+        String password = "KCUEGuy92YtVig25";
+        String[][] data = null;
 
-        return "";
+        try {
+            Class.forName(driver).newInstance();
+            Connection conn = DriverManager.getConnection(url + dbName, userName, password);
+
+            Statement st = conn.createStatement();
+            ResultSet res = st.executeQuery("SELECT * FROM projektIOIO");
+            res.last();
+            data = new String[res.getRow()][8];
+            res.first();
+            res.previous();
+            int i = 0;
+            while(res.next()){
+                data[i][0] = res.getString("Product");
+                data[i][1] = res.getString("Amount");
+                data[i][2] = res.getString("Value");
+                data[i][3] = res.getString("Tax");
+                data[i][4] = res.getString("ClientID");
+                data[i][5] = res.getString("TypeA");
+                data[i][6] = res.getString("TypeB");
+                data[i][7] = res.getString("Number");
+                i++;
+            }
+
+            conn.close();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } catch (IllegalAccessException e) {
+            e.printStackTrace();
+        } catch (InstantiationException e) {
+            e.printStackTrace();
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+
+        return data;
     }
 
 

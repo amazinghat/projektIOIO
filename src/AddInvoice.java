@@ -1,9 +1,7 @@
 import javax.swing.*;
-import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.WindowEvent;
-import java.io.FileNotFoundException;
 
 /**
  * Created by Administrator on 2017-04-25.
