@@ -12,6 +12,8 @@ public class GUI {
     private JButton addInvoice;
     private JPanel GUI;
     private JButton display;
+    private JTextField loginField;
+    private JTextField pwdField;
 
     /*
 
@@ -25,21 +27,25 @@ public class GUI {
         addInvoice.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                JFrame frame = new JFrame("Dodawanie faktur/paragonów");
-                frame.setContentPane(new AddInvoice(frame).getInvoice());
-                frame.pack();
-                frame.setVisible(true);
+                if(new Communication().logIn(loginField.getText(), pwdField.getText())) {
+                    JFrame frame = new JFrame("Dodawanie faktur/paragonów");
+                    frame.setContentPane(new AddInvoice(frame).getInvoice());
+                    frame.pack();
+                    frame.setVisible(true);
+                }
             }
         });
 
         display.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                JFrame frame = new JFrame("Wyświetlanie");
-                frame.setContentPane(new Display(frame).getPanel1());
-                frame.setExtendedState(JFrame.MAXIMIZED_BOTH);
-                frame.setUndecorated(true);
-                frame.setVisible(true);
+                if(new Communication().logIn(loginField.getText(), pwdField.getText())) {
+                    JFrame frame = new JFrame("Wyświetlanie");
+                    frame.setContentPane(new Display(frame).getPanel1());
+                    frame.setExtendedState(JFrame.MAXIMIZED_BOTH);
+                    frame.setUndecorated(true);
+                    frame.setVisible(true);
+                }
             }
         });
     }
