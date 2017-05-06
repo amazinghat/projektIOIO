@@ -72,7 +72,7 @@ public class Communication {
                 Statement st = conn.createStatement();
                 ResultSet res = st.executeQuery("SELECT * FROM projektIOIO");
                 res.last();
-                Invoice.setCurrentAmount(res.getRow());
+                Invoice.setCurrentAmount(res.getRow()+1);
                 String data = "(" + "'" + product + "'" + "," + String.valueOf(amount) + "," + String.valueOf(value) + "," + String.valueOf(tax) + "," + String.valueOf(clientid) + "," + "'" + typeA + "'" + "," + "'" + typeB + "'" + "," + "'" + id + "'" + ")";
                 st.executeUpdate("INSERT INTO projektIOIO(Product, Amount, Value, Tax, ClientID, TypeA, TypeB, Number) VALUES " + data);
 
