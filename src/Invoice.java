@@ -15,6 +15,21 @@ public class Invoice {
    private float tax;
    private int clientid;
 
+   static private int currentAmount;
+
+   public static int getCurrentAmount() {
+      return currentAmount;
+   }
+
+   public static void setCurrentAmount(int currentAmount) {
+       Invoice.currentAmount = currentAmount;
+       System.out.println(currentAmount);
+       if(currentAmount>Conf.getAmount()){
+           //TODO: Generuj Raport do pliku
+           //Funkcja Communiction.receive() zwraca dane w postaci tabeli Stringów - należy to zapisać do nowego pliku
+       }
+   }
+
    public void setTypeA(String typeA) {
       this.typeA = typeA;
    }
