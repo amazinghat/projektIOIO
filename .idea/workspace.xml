@@ -2,12 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="9cc2388c-42a0-45c2-b8ac-741fc8806db0" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/IOIO/Communication.class" afterPath="$PROJECT_DIR$/out/production/IOIO/Communication.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/IOIO/Invoice.class" afterPath="$PROJECT_DIR$/out/production/IOIO/Invoice.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Communication.java" afterPath="$PROJECT_DIR$/src/Communication.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Conf.java" afterPath="$PROJECT_DIR$/src/Conf.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Invoice.java" afterPath="$PROJECT_DIR$/src/Invoice.java" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -36,17 +32,17 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Communication.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="Communication.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/Communication.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="315">
-              <caret line="107" column="51" selection-start-line="107" selection-start-column="51" selection-end-line="107" selection-end-column="51" />
+            <state relative-caret-position="405">
+              <caret line="74" column="55" selection-start-line="74" selection-start-column="55" selection-end-line="74" selection-end-column="55" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Invoice.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="Invoice.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Invoice.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="285">
@@ -142,9 +138,9 @@
         <option value="$PROJECT_DIR$/src/Display.java" />
         <option value="$PROJECT_DIR$/src/GUI.form" />
         <option value="$PROJECT_DIR$/src/GUI.java" />
-        <option value="$PROJECT_DIR$/src/Communication.java" />
         <option value="$PROJECT_DIR$/src/Conf.java" />
         <option value="$PROJECT_DIR$/src/Invoice.java" />
+        <option value="$PROJECT_DIR$/src/Communication.java" />
       </list>
     </option>
   </component>
@@ -590,7 +586,7 @@
     <option name="totallyTimeSpent" value="3835000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-3" y="31" width="1372" height="740" extended-state="6" />
+    <frame x="-3" y="31" width="1372" height="740" extended-state="7" />
     <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -926,14 +922,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Communication.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="315">
-          <caret line="107" column="51" selection-start-line="107" selection-start-column="51" selection-end-line="107" selection-end-column="51" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Invoice.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="285">
@@ -943,6 +931,14 @@
             <element signature="e#434#435#0" expanded="true" />
             <element signature="e#467#468#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Communication.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="405">
+          <caret line="74" column="55" selection-start-line="74" selection-start-column="55" selection-end-line="74" selection-end-column="55" />
+          <folding />
         </state>
       </provider>
     </entry>
