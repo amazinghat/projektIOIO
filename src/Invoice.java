@@ -109,6 +109,32 @@ public class Invoice {
    public void saveToFile(){
       new Communication().send(product, amount, value, tax, clientid, typeA, typeB, id);
    }
+   
+   public static void readFromFile(){
+      sending = true;
+      new Thread(new Runnable() {
+         @Override
+         public void run() {
+            File dataInput = new File("DataInputGroupA.csv");
+            Scanner scanner = null;
+            try {
+               scanner = new Scanner(dataInput);
+            } catch (FileNotFoundException e) {
+               e.printStackTrace();
+            }
+            String line;
+            String[] data;
+
+            while((line = scanner.nextLine()) != null && sending){
+               data = line.split(",");
+               int clientID = Integer.valueOf(data[8].substring(6, data[8].length()));
+               float percent = Float.valueOf(data[7].substring(0, data[7].length()-1));
+               new Communication().send(data[4], Float.parseFloat(data[6]), Float.parseFloat(data[5]), percent, clientID, data[2], data[3], data[0]);
+            }
+            System.out.println("READY");
+         }
+      }).start();
+   }
 
    public void write(){
 
