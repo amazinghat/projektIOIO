@@ -24,7 +24,7 @@ public class Invoice {
 
    public static void setCurrentAmount(int currentAmount) throws IOException, InterruptedException {
        Invoice.currentAmount = currentAmount;
-       if(currentAmount % Conf.getAmount() == 1){   // ---> generuj raport co 1000 wpisow
+       if(currentAmount % Conf.getAmount() == 0){   // ---> generuj raport co 1000 wpisow
           System.out.println("Generuje raport");
 
           File raportfile = new File("raport.txt");

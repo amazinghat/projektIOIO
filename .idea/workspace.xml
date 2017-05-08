@@ -2,10 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="9cc2388c-42a0-45c2-b8ac-741fc8806db0" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/raport.txt" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/IOIO/Invoice$1.class" afterPath="$PROJECT_DIR$/out/production/IOIO/Invoice$1.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/IOIO/Invoice.class" afterPath="$PROJECT_DIR$/out/production/IOIO/Invoice.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Communication.java" afterPath="$PROJECT_DIR$/src/Communication.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Conf.java" afterPath="$PROJECT_DIR$/src/Conf.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Invoice.java" afterPath="$PROJECT_DIR$/src/Invoice.java" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
@@ -38,23 +37,23 @@
       <file leaf-file-name="Communication.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Communication.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2265">
-              <caret line="155" column="44" selection-start-line="155" selection-start-column="44" selection-end-line="155" selection-end-column="44" />
+            <state relative-caret-position="270">
+              <caret line="79" column="55" selection-start-line="79" selection-start-column="55" selection-end-line="79" selection-end-column="55" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Invoice.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="Invoice.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Invoice.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1248">
-              <caret line="134" column="90" selection-start-line="134" selection-start-column="90" selection-end-line="134" selection-end-column="90" />
+            <state relative-caret-position="270">
+              <caret line="26" column="47" selection-start-line="26" selection-start-column="47" selection-end-line="26" selection-end-column="47" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#2924#2925#0" expanded="true" />
                 <element signature="e#2955#2956#0" expanded="true" />
-                <marker date="1494274884820" expanded="true" signature="3333:3340" ph="{...}" />
+                <marker date="1494275494396" expanded="true" signature="3333:3340" ph="{...}" />
               </folding>
             </state>
           </provider>
@@ -64,17 +63,17 @@
         <entry file="file://$PROJECT_DIR$/src/Conf.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="105">
-              <caret line="7" column="21" selection-start-line="7" selection-start-column="21" selection-end-line="7" selection-end-column="21" />
+              <caret line="7" column="20" selection-start-line="7" selection-start-column="20" selection-end-line="7" selection-end-column="20" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="GUI.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="GUI.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/GUI.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1140">
-              <caret line="81" column="43" selection-start-line="81" selection-start-column="43" selection-end-line="81" selection-end-column="43" />
+            <state relative-caret-position="47">
+              <caret line="43" column="46" selection-start-line="43" selection-start-column="46" selection-end-line="43" selection-end-column="46" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -142,11 +141,11 @@
         <option value="$PROJECT_DIR$/invoice.in" />
         <option value="$PROJECT_DIR$/src/Display.form" />
         <option value="$PROJECT_DIR$/src/AddInvoice.java" />
-        <option value="$PROJECT_DIR$/src/Communication.java" />
         <option value="$PROJECT_DIR$/src/GUI.form" />
         <option value="$PROJECT_DIR$/src/GUI.java" />
         <option value="$PROJECT_DIR$/src/Display.java" />
         <option value="$PROJECT_DIR$/src/Conf.java" />
+        <option value="$PROJECT_DIR$/src/Communication.java" />
         <option value="$PROJECT_DIR$/src/Invoice.java" />
       </list>
     </option>
@@ -617,7 +616,7 @@
             <element signature="imports" expanded="true" />
             <element signature="e#2924#2925#0" expanded="true" />
             <element signature="e#2955#2956#0" expanded="true" />
-            <marker date="1494274884820" expanded="true" signature="3333:3340" ph="{...}" />
+            <marker date="1494275494396" expanded="true" signature="3333:3340" ph="{...}" />
           </folding>
         </state>
       </provider>
@@ -692,7 +691,7 @@
             <element signature="imports" expanded="true" />
             <element signature="e#2924#2925#0" expanded="true" />
             <element signature="e#2955#2956#0" expanded="true" />
-            <marker date="1494274884820" expanded="true" signature="3333:3340" ph="{...}" />
+            <marker date="1494275494396" expanded="true" signature="3333:3340" ph="{...}" />
           </folding>
         </state>
       </provider>
@@ -797,7 +796,7 @@
             <element signature="imports" expanded="true" />
             <element signature="e#2924#2925#0" expanded="true" />
             <element signature="e#2955#2956#0" expanded="true" />
-            <marker date="1494274884820" expanded="true" signature="3333:3340" ph="{...}" />
+            <marker date="1494275494396" expanded="true" signature="3333:3340" ph="{...}" />
           </folding>
         </state>
       </provider>
@@ -877,7 +876,7 @@
             <element signature="imports" expanded="true" />
             <element signature="e#2924#2925#0" expanded="true" />
             <element signature="e#2955#2956#0" expanded="true" />
-            <marker date="1494274884820" expanded="true" signature="3333:3340" ph="{...}" />
+            <marker date="1494275494396" expanded="true" signature="3333:3340" ph="{...}" />
           </folding>
         </state>
       </provider>
@@ -975,14 +974,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Communication.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2265">
-          <caret line="155" column="44" selection-start-line="155" selection-start-column="44" selection-end-line="155" selection-end-column="44" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/GUI.form">
       <provider editor-type-id="ui-designer">
         <state />
@@ -1004,16 +995,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/GUI.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1140">
-          <caret line="81" column="43" selection-start-line="81" selection-start-column="43" selection-end-line="81" selection-end-column="43" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Display.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="510">
@@ -1024,23 +1005,41 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Conf.java">
+    <entry file="file://$PROJECT_DIR$/src/Communication.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="7" column="21" selection-start-line="7" selection-start-column="21" selection-end-line="7" selection-end-column="21" />
+        <state relative-caret-position="270">
+          <caret line="79" column="55" selection-start-line="79" selection-start-column="55" selection-end-line="79" selection-end-column="55" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Invoice.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1248">
-          <caret line="134" column="90" selection-start-line="134" selection-start-column="90" selection-end-line="134" selection-end-column="90" />
+        <state relative-caret-position="270">
+          <caret line="26" column="47" selection-start-line="26" selection-start-column="47" selection-end-line="26" selection-end-column="47" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#2924#2925#0" expanded="true" />
             <element signature="e#2955#2956#0" expanded="true" />
-            <marker date="1494274884820" expanded="true" signature="3333:3340" ph="{...}" />
+            <marker date="1494275494396" expanded="true" signature="3333:3340" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Conf.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="105">
+          <caret line="7" column="20" selection-start-line="7" selection-start-column="20" selection-end-line="7" selection-end-column="20" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/GUI.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="47">
+          <caret line="43" column="46" selection-start-line="43" selection-start-column="46" selection-end-line="43" selection-end-column="46" />
+          <folding>
+            <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
