@@ -16,11 +16,8 @@ public class GUI {
     private JTextField pwdField;
     private JTextField ammountField;
     private JButton showRaport;
+    private JButton clearButton;
 
-    /*
-    DISPLAY MA BYĆ W GUI - ALBO POLACZYC KONSOLE Z GUI ALBO DODATKOWE POLA JAKO DISPLAY -
-    Z PKT WIDZENIA UZYTKOWNIA LEPIEJ MIEC WSZYSTKO W JEDNYM MIEJSCU
-    */
     public GUI() {
         addInvoice.addActionListener(new ActionListener() {
             @Override
@@ -57,9 +54,16 @@ public class GUI {
             }
         });
 
+        clearButton.addActionListener(new ActionListener() {                    // testowy guzik do spr czy czyszczenie dziala
+            @Override                                                           // mozna wywalic a moze tez zostac
+            public void actionPerformed(ActionEvent e) {
+                if(new Communication().logIn(loginField.getText(), pwdField.getText())) {
+                    Communication.delete();
+                }
+            }
+        });
+
     }
-
-
 
     public static void main(String[] args) {
         JFrame frame = new JFrame("Program Ksiegowy");

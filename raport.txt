@@ -1,0 +1,6 @@
+Transakcja 0: dgdsfgcvbnvbn 2 534573 344 0 Income Invoice 1494262443016
+Transakcja 1: produkt1 1 123 123 0 Income Invoice 1494263825555
+Ilosc transakcji: 2
+Transakcja 0: produkt3 2 53 2 0 Income Invoice 1494263837354
+Transakcja 1: produkt5 2 3532 35 0 Income Invoice 1494263875643
+Ilosc transakcji: 2

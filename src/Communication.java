@@ -1,4 +1,5 @@
 import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.sql.*;
 
 /**
@@ -92,6 +93,8 @@ public class Communication {
                 e.printStackTrace();
             } catch (FileNotFoundException e) {
                 e.printStackTrace();
+            } catch (IOException e) {
+                e.printStackTrace();
             }
         }
     }
@@ -147,11 +150,34 @@ public class Communication {
         return data;
     }
 
-    /*-----------------------
 
-     Tu bedzie jakas funkcja do usuwania wierszy
+    public static void delete() {                               // funkcja do wyczyszczenia tabeli
+        if (user.equals("boss")) {                              // z przywroceniem iteracji wierszy od 0
+            String url = "jdbc:mysql://mysql.agh.edu.pl:3306/";
+            String dbName = "jszczerb";
+            String driver = "com.mysql.jdbc.Driver";
+            String userName = "jszczerb";
+            String password = "KCUEGuy92YtVig25";
 
-     -------------------------*/
+            try {
+                Class.forName(driver).newInstance();
+                Connection conn = DriverManager.getConnection(url + dbName, userName, password);
 
+                Statement st = conn.createStatement();
+                st.executeUpdate("TRUNCATE TABLE projektIOIO");
+
+                conn.close();
+
+            } catch (IllegalAccessException e) {
+                e.printStackTrace();
+            } catch (InstantiationException e) {
+                e.printStackTrace();
+            } catch (SQLException e) {
+                e.printStackTrace();
+            } catch (ClassNotFoundException e) {
+                e.printStackTrace();
+            }
+        }
+    }
 
 }

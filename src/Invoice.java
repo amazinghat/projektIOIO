@@ -1,6 +1,4 @@
-import java.io.FileNotFoundException;
-import java.io.PrintWriter;
-import java.io.File;
+import java.io.*;
 
 /**
  * Created by Administrator on 2017-04-11.
@@ -21,12 +19,13 @@ public class Invoice {
       return currentAmount;
    }
 
-   public static void setCurrentAmount(int currentAmount) throws FileNotFoundException, InterruptedException {
+   public static void setCurrentAmount(int currentAmount) throws IOException, InterruptedException {
        Invoice.currentAmount = currentAmount;
        System.out.println(currentAmount);
-       if(currentAmount>Conf.getAmount()){   // tu bedzie modulo, zeby generowal co iles a nie za kazdym razem po przekroczeniu pewnej ilosci
+       if(currentAmount % Conf.getAmount() == 1){   // ---> generuj raport co 10 wpisow
 
-          PrintWriter zapis = new PrintWriter("raport.txt");
+          File raportfile = new File("raport.txt");
+          PrintWriter zapis = new PrintWriter(new FileWriter(raportfile, true));
           String [][] raport = Communication.receive();
 
           for (int i = 0; i < raport.length ; i++) {
@@ -36,6 +35,7 @@ public class Invoice {
           zapis.println("Ilosc transakcji: " + raport.length);
           zapis.close();
 
+          Communication.delete();      // ---> czysci baze danych po raporcie
           /*
           raport nie dodaje najnowszego wiersza bo tworzenie jest wywoływane przed dodaniem go w funkcji send
 
