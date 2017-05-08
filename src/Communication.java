@@ -59,7 +59,7 @@ public class Communication {
         Połączyć się z nią można jedynie z wewnątrz sieci AGH
         lub za pomocą VPN
      */
-    public void send(String product, int amount, float value, float tax, int clientid, String typeA, String typeB, String id){
+    public void send(String product, float amount, float value, float tax, int clientid, String typeA, String typeB, String id){
         if(user.equals("boss") || user.equals("accountant")) {
             String url = "jdbc:mysql://mysql.agh.edu.pl:3306/";
             String dbName = "jszczerb";

@@ -38,7 +38,7 @@ public class AddInvoice {
             @Override
             public void actionPerformed(ActionEvent e) {
                 invoice.setProduct(productField.getText());
-                invoice.setAmount((int) amountSpinner.getValue());
+                invoice.setAmount((float) amountSpinner.getValue());
                 invoice.setValue(Float.parseFloat(valueField.getText()));
                 invoice.setTax(Float.parseFloat(taxField.getText()));
                 invoice.setClientid(clientList.getSelectedIndex());

@@ -1,4 +1,5 @@
 import java.io.*;
+import java.util.Scanner;
 
 /**
  * Created by Administrator on 2017-04-11.
@@ -8,10 +9,12 @@ public class Invoice {
    private String typeA;
    private String typeB;
    private String product;
-   private int amount;
+   private float amount;
    private float value;
    private float tax;
    private int clientid;
+
+   private static boolean sending;
 
    static private int currentAmount;
 
@@ -23,10 +26,11 @@ public class Invoice {
        Invoice.currentAmount = currentAmount;
        System.out.println(currentAmount);
        if(currentAmount % Conf.getAmount() == 1){   // ---> generuj raport co 10 wpisow
+          System.out.println("Generuje raport");
 
           File raportfile = new File("raport.txt");
           PrintWriter zapis = new PrintWriter(new FileWriter(raportfile, true));
-          String [][] raport = Communication.receive();
+          String [][] raport = new Communication().receive();
           float przychod = 0, wydatek = 0, saldo, podatek = 0;
           int iloscIncome = 0, iloscOutcome = 0;
 
@@ -43,7 +47,6 @@ public class Invoice {
                 iloscOutcome++;
                 wydatek = wydatek + Float.parseFloat(raport[i][2]);
              }
-
              podatek = podatek + Float.parseFloat(raport[i][3]);
           }
           saldo = przychod - wydatek;
@@ -56,19 +59,9 @@ public class Invoice {
           //------------------------------------------------------------------------
           zapis.close();
 
-          Communication.delete();      // ---> czysci baze danych po raporcie
-          /*
-          raport nie dodaje najnowszego wiersza bo tworzenie jest wywoływane przed dodaniem go w funkcji send
+          new Communication().delete();      // ---> czysci baze danych po raporcie
 
-
-
-          robie szczegoly do raportu
-
-
-
-
-
-          */
+          //raport nie dodaje najnowszego wiersza bo tworzenie jest wywoływane przed dodaniem go w funkcji send
        }
    }
 
@@ -84,7 +77,7 @@ public class Invoice {
       this.product = product;
    }
 
-   public void setAmount(int amount) {
+   public void setAmount(float amount) {
       this.amount = amount;
    }
 
@@ -109,7 +102,11 @@ public class Invoice {
    public void saveToFile(){
       new Communication().send(product, amount, value, tax, clientid, typeA, typeB, id);
    }
-   
+
+   public static void setSending(boolean sending) {
+      Invoice.sending = sending;
+   }
+
    public static void readFromFile(){
       sending = true;
       new Thread(new Runnable() {
