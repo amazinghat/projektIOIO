@@ -79,6 +79,7 @@ public class GUI {
             @Override
             public void actionPerformed(ActionEvent e) {
                 Invoice.setSending(false);
+                stopButton.setEnabled(false);
             }
         });
     }
