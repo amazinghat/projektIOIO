@@ -18,8 +18,10 @@ public class GUI {
     private JButton showRaport;
     private JButton clearButton;
     private JButton readButton;
+    private JButton stopButton;
 
     public GUI() {
+        stopButton.setEnabled(false);
         addInvoice.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -68,8 +70,15 @@ public class GUI {
             @Override
             public void actionPerformed(ActionEvent e) {
                 if(new Communication().logIn(loginField.getText(), pwdField.getText())) {
-                    new Invoice().readFromFile();
+                    stopButton.setEnabled(true);
+                    Invoice.readFromFile();
                 }
+            }
+        });
+        stopButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                Invoice.setSending(false);
             }
         });
     }

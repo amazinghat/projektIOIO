@@ -14,6 +14,8 @@ public class Invoice {
    private float tax;
    private int clientid;
 
+   private static boolean sending;
+
    static private int currentAmount;
 
    public static int getCurrentAmount() {
@@ -22,8 +24,8 @@ public class Invoice {
 
    public static void setCurrentAmount(int currentAmount) throws IOException, InterruptedException {
        Invoice.currentAmount = currentAmount;
-       System.out.println(currentAmount);
        if(currentAmount % Conf.getAmount() == 1){   // ---> generuj raport co 10 wpisow
+          System.out.println("Generuje raport");
 
           File raportfile = new File("raport.txt");
           PrintWriter zapis = new PrintWriter(new FileWriter(raportfile, true));
@@ -90,23 +92,34 @@ public class Invoice {
       new Communication().send(product, amount, value, tax, clientid, typeA, typeB, id);
    }
 
-   public void readFromFile(){
-      File dataInput = new File("DataInputGroupA.csv");
-      Scanner scanner = null;
-      try {
-         scanner = new Scanner(dataInput);
-      } catch (FileNotFoundException e) {
-         e.printStackTrace();
-      }
-      String line;
-      String[] data;
-      while((line = scanner.nextLine()) != null){
-         data = line.split(",");
-         int clientID = Integer.valueOf(data[8].substring(6, data[8].length()));
-         float percent = Float.valueOf(data[7].substring(0, data[7].length()-1));
-         new Communication().send(data[4], Float.parseFloat(data[6]), Float.parseFloat(data[5]), percent, clientID, data[2], data[3], data[0]);
-      }
-      System.out.println("READY");
+   public static void setSending(boolean sending) {
+      Invoice.sending = sending;
+   }
+
+   public static void readFromFile(){
+      sending = true;
+      new Thread(new Runnable() {
+         @Override
+         public void run() {
+            File dataInput = new File("DataInputGroupA.csv");
+            Scanner scanner = null;
+            try {
+               scanner = new Scanner(dataInput);
+            } catch (FileNotFoundException e) {
+               e.printStackTrace();
+            }
+            String line;
+            String[] data;
+
+            while((line = scanner.nextLine()) != null && sending){
+               data = line.split(",");
+               int clientID = Integer.valueOf(data[8].substring(6, data[8].length()));
+               float percent = Float.valueOf(data[7].substring(0, data[7].length()-1));
+               new Communication().send(data[4], Float.parseFloat(data[6]), Float.parseFloat(data[5]), percent, clientID, data[2], data[3], data[0]);
+            }
+            System.out.println("READY");
+         }
+      }).start();
    }
 
    public void write(){
