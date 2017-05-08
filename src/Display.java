@@ -32,10 +32,13 @@ public class Display {
             }
         };
         table1.setModel(model);
+
         panel1.setLayout(new BorderLayout());
-        panel1.add(table1, BorderLayout.CENTER);
+        JScrollPane forTable = new JScrollPane(table1);
+        panel1.add(forTable, BorderLayout.CENTER);
         panel1.add(table1.getTableHeader(), BorderLayout.NORTH);
         panel1.add(button1, BorderLayout.SOUTH);
+
         button1.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {

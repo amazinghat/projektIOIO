@@ -1000,3 +1000,4 @@ Transakcja 997: GCXZ 686 30.12 0 28 income Other 1451811164
 Transakcja 998: NRRO 153 6.6 11 19 income Receipt 1451811226
 Transakcja 999: DAZD 105 7.95 11 17 outcome Payment 1451811308
 Ilosc transakcji: 1000
+Ilosc transakcji: 0
