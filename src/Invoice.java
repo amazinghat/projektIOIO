@@ -1,4 +1,5 @@
 import java.io.*;
+import java.util.Scanner;
 
 /**
  * Created by Administrator on 2017-04-11.
@@ -8,7 +9,7 @@ public class Invoice {
    private String typeA;
    private String typeB;
    private String product;
-   private int amount;
+   private float amount;
    private float value;
    private float tax;
    private int clientid;
@@ -26,7 +27,7 @@ public class Invoice {
 
           File raportfile = new File("raport.txt");
           PrintWriter zapis = new PrintWriter(new FileWriter(raportfile, true));
-          String [][] raport = Communication.receive();
+          String [][] raport = new Communication().receive();
 
           for (int i = 0; i < raport.length ; i++) {
              zapis.print("Transakcja " + i + ": " + raport[i][0] + " " + raport[i][1] + " " + raport[i][2] + " " + raport[i][3] + " " + raport[i][4] + " " + raport[i][5] + " " + raport[i][6] + " " + raport[i][7]);
@@ -35,7 +36,7 @@ public class Invoice {
           zapis.println("Ilosc transakcji: " + raport.length);
           zapis.close();
 
-          Communication.delete();      // ---> czysci baze danych po raporcie
+          new Communication().delete();      // ---> czysci baze danych po raporcie
           /*
           raport nie dodaje najnowszego wiersza bo tworzenie jest wywoływane przed dodaniem go w funkcji send
 
@@ -63,7 +64,7 @@ public class Invoice {
       this.product = product;
    }
 
-   public void setAmount(int amount) {
+   public void setAmount(float amount) {
       this.amount = amount;
    }
 
@@ -87,6 +88,25 @@ public class Invoice {
 
    public void saveToFile(){
       new Communication().send(product, amount, value, tax, clientid, typeA, typeB, id);
+   }
+
+   public void readFromFile(){
+      File dataInput = new File("DataInputGroupA.csv");
+      Scanner scanner = null;
+      try {
+         scanner = new Scanner(dataInput);
+      } catch (FileNotFoundException e) {
+         e.printStackTrace();
+      }
+      String line;
+      String[] data;
+      while((line = scanner.nextLine()) != null){
+         data = line.split(",");
+         int clientID = Integer.valueOf(data[8].substring(6, data[8].length()));
+         float percent = Float.valueOf(data[7].substring(0, data[7].length()-1));
+         new Communication().send(data[4], Float.parseFloat(data[6]), Float.parseFloat(data[5]), percent, clientID, data[2], data[3], data[0]);
+      }
+      System.out.println("READY");
    }
 
    public void write(){

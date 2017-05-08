@@ -59,7 +59,7 @@ public class Communication {
         Połączyć się z nią można jedynie z wewnątrz sieci AGH
         lub za pomocą VPN
      */
-    public void send(String product, int amount, float value, float tax, int clientid, String typeA, String typeB, String id){
+    public void send(String product, float amount, float value, float tax, int clientid, String typeA, String typeB, String id){
         if(user.equals("boss") || user.equals("accountant")) {
             String url = "jdbc:mysql://mysql.agh.edu.pl:3306/";
             String dbName = "jszczerb";
@@ -99,7 +99,7 @@ public class Communication {
         }
     }
 
-    public static String[][] receive(){
+    public String[][] receive(){
         String[][] data = null;
         if(user.equals("boss")) {
             String url = "jdbc:mysql://mysql.agh.edu.pl:3306/";
@@ -151,7 +151,7 @@ public class Communication {
     }
 
 
-    public static void delete() {                               // funkcja do wyczyszczenia tabeli
+    public void delete() {                               // funkcja do wyczyszczenia tabeli
         if (user.equals("boss")) {                              // z przywroceniem iteracji wierszy od 0
             String url = "jdbc:mysql://mysql.agh.edu.pl:3306/";
             String dbName = "jszczerb";

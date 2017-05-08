@@ -17,6 +17,7 @@ public class GUI {
     private JTextField ammountField;
     private JButton showRaport;
     private JButton clearButton;
+    private JButton readButton;
 
     public GUI() {
         addInvoice.addActionListener(new ActionListener() {
@@ -58,11 +59,19 @@ public class GUI {
             @Override                                                           // mozna wywalic a moze tez zostac
             public void actionPerformed(ActionEvent e) {
                 if(new Communication().logIn(loginField.getText(), pwdField.getText())) {
-                    Communication.delete();
+                    new Communication().delete();
                 }
             }
         });
 
+        readButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                if(new Communication().logIn(loginField.getText(), pwdField.getText())) {
+                    new Invoice().readFromFile();
+                }
+            }
+        });
     }
 
     public static void main(String[] args) {
