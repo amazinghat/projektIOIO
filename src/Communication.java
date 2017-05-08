@@ -99,7 +99,7 @@ public class Communication {
         }
     }
 
-    public static String[][] receive(){
+    public String[][] receive(){
         String[][] data = null;
         if(user.equals("boss")) {
             String url = "jdbc:mysql://mysql.agh.edu.pl:3306/";
@@ -151,7 +151,7 @@ public class Communication {
     }
 
 
-    public static void delete() {                               // funkcja do wyczyszczenia tabeli
+    public void delete() {                               // funkcja do wyczyszczenia tabeli
         if (user.equals("boss")) {                              // z przywroceniem iteracji wierszy od 0
             String url = "jdbc:mysql://mysql.agh.edu.pl:3306/";
             String dbName = "jszczerb";

@@ -24,15 +24,16 @@ public class Invoice {
 
    public static void setCurrentAmount(int currentAmount) throws IOException, InterruptedException {
        Invoice.currentAmount = currentAmount;
-       System.out.println(currentAmount);
        if(currentAmount % Conf.getAmount() == 1){   // ---> generuj raport co 10 wpisow
           System.out.println("Generuje raport");
 
           File raportfile = new File("raport.txt");
           PrintWriter zapis = new PrintWriter(new FileWriter(raportfile, true));
           String [][] raport = new Communication().receive();
+
           float przychod = 0, wydatek = 0, saldo, podatek = 0;
           int iloscIncome = 0, iloscOutcome = 0;
+
 
           //-------------------------ZESTAWIENIE TRANSAKCJI------------------------
           for (int i = 0; i < raport.length ; i++) {
@@ -61,7 +62,13 @@ public class Invoice {
 
           new Communication().delete();      // ---> czysci baze danych po raporcie
 
-          //raport nie dodaje najnowszego wiersza bo tworzenie jest wywoływane przed dodaniem go w funkcji send
+          /*
+          raport nie dodaje najnowszego wiersza bo tworzenie jest wywoływane przed dodaniem go w funkcji send
+
+
+
+          robie szczegoly do raportu
+        */
        }
    }
 
