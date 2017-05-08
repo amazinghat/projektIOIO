@@ -14,15 +14,13 @@ public class GUI {
     private JButton display;
     private JTextField loginField;
     private JTextField pwdField;
+    private JTextField ammountField;
+    private JButton showRaport;
 
     /*
-
     DISPLAY MA BYĆ W GUI - ALBO POLACZYC KONSOLE Z GUI ALBO DODATKOWE POLA JAKO DISPLAY -
     Z PKT WIDZENIA UZYTKOWNIA LEPIEJ MIEC WSZYSTKO W JEDNYM MIEJSCU
-    
     */
-
-
     public GUI() {
         addInvoice.addActionListener(new ActionListener() {
             @Override
@@ -42,16 +40,29 @@ public class GUI {
                 if(new Communication().logIn(loginField.getText(), pwdField.getText())) {
                     JFrame frame = new JFrame("Wyświetlanie");
                     frame.setContentPane(new Display(frame).getPanel1());
-                    frame.setExtendedState(JFrame.MAXIMIZED_BOTH);
+                    frame.setSize(1000,500);
+                    //frame.setExtendedState(JFrame.MAXIMIZED_BOTH);
                     frame.setUndecorated(true);
                     frame.setVisible(true);
                 }
             }
         });
+
+        showRaport.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                if(new Communication().logIn(loginField.getText(), pwdField.getText())) {
+                    ammountField.setText(Integer.toString(Invoice.getCurrentAmount()));
+                }
+            }
+        });
+
     }
 
+
+
     public static void main(String[] args) {
-        JFrame frame = new JFrame("Program Kiegowy");
+        JFrame frame = new JFrame("Program Ksiegowy");
         frame.setContentPane(new GUI().GUI);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.pack();

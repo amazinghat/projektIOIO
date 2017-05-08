@@ -1,3 +1,4 @@
+import java.io.FileNotFoundException;
 import java.sql.*;
 
 /**
@@ -72,9 +73,11 @@ public class Communication {
                 Statement st = conn.createStatement();
                 ResultSet res = st.executeQuery("SELECT * FROM projektIOIO");
                 res.last();
-                Invoice.setCurrentAmount(res.getRow()+1);
+                Invoice.setCurrentAmount(res.getRow()+1);   //problem - ta funkcja wywoluje automatyczny raport do pliku przed dodatniem najnowszego wiersza, dlatego też dodawana jest ta jedynka, a nie powinno tak być
                 String data = "(" + "'" + product + "'" + "," + String.valueOf(amount) + "," + String.valueOf(value) + "," + String.valueOf(tax) + "," + String.valueOf(clientid) + "," + "'" + typeA + "'" + "," + "'" + typeB + "'" + "," + "'" + id + "'" + ")";
                 st.executeUpdate("INSERT INTO projektIOIO(Product, Amount, Value, Tax, ClientID, TypeA, TypeB, Number) VALUES " + data);
+                // Dziadostwo :( nie pozwala na przeniesienie Invoice.setCuttentAmount w to miejsce
+
 
                 conn.close();
             } catch (SQLException e) {
@@ -85,11 +88,15 @@ public class Communication {
                 e.printStackTrace();
             } catch (ClassNotFoundException e) {
                 e.printStackTrace();
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            } catch (FileNotFoundException e) {
+                e.printStackTrace();
             }
         }
     }
 
-    public String[][] receive(){
+    public static String[][] receive(){
         String[][] data = null;
         if(user.equals("boss")) {
             String url = "jdbc:mysql://mysql.agh.edu.pl:3306/";
@@ -139,6 +146,12 @@ public class Communication {
 
         return data;
     }
+
+    /*-----------------------
+
+     Tu bedzie jakas funkcja do usuwania wierszy
+
+     -------------------------*/
 
 
 }
