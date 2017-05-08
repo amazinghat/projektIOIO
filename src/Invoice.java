@@ -24,7 +24,7 @@ public class Invoice {
 
    public static void setCurrentAmount(int currentAmount) throws IOException, InterruptedException {
        Invoice.currentAmount = currentAmount;
-       if(currentAmount % Conf.getAmount() == 1){   // ---> generuj raport co 10 wpisow
+       if(currentAmount % Conf.getAmount() == 1){   // ---> generuj raport co 1000 wpisow
           System.out.println("Generuje raport");
 
           File raportfile = new File("raport.txt");
@@ -40,11 +40,11 @@ public class Invoice {
              zapis.print("Transakcja " + i + ": " + raport[i][0] + " " + raport[i][1] + " " + raport[i][2] + " " + raport[i][3] + " " + raport[i][4] + " " + raport[i][5] + " " + raport[i][6] + " " + raport[i][7]);
              zapis.println();
 
-             if(raport[i][5] == "Income"){
+             if(raport[i][5].equals("income")){
                 iloscIncome++;
                 przychod = przychod + Float.parseFloat(raport[i][2]);
              }
-             else if(raport[i][5] == "Outcome"){
+             else if(raport[i][5].equals("outcome")){
                 iloscOutcome++;
                 wydatek = wydatek + Float.parseFloat(raport[i][2]);
              }
@@ -132,7 +132,7 @@ public class Invoice {
             while((line = scanner.nextLine()) != null && sending){
                data = line.split(",");
                int clientID = Integer.valueOf(data[8].substring(6, data[8].length()));
-               float percent = Float.valueOf(data[7].substring(0, data[7].length()-1));
+               float percent = Float.valueOf(data[7].substring(0, data[7].length()-1))/100;
                new Communication().send(data[4], Float.parseFloat(data[6]), Float.parseFloat(data[5]), percent, clientID, data[2], data[3], data[0]);
             }
             System.out.println("READY");
