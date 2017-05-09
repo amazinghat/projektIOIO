@@ -14,6 +14,9 @@ public class Display {
     private JPanel panel1;
     private JTable table1;
     private JButton button1;
+    private JButton button2;
+    private JPanel buttonPanel;
+    private JButton genButton;
 
     public JPanel getPanel1() {
         return panel1;
@@ -37,7 +40,7 @@ public class Display {
         JScrollPane forTable = new JScrollPane(table1);
         panel1.add(forTable, BorderLayout.CENTER);
         panel1.add(table1.getTableHeader(), BorderLayout.NORTH);
-        panel1.add(button1, BorderLayout.SOUTH);
+        panel1.add(buttonPanel, BorderLayout.SOUTH);                //TODO: Generowanie faktury do pliku
 
         button1.addActionListener(new ActionListener() {
             @Override

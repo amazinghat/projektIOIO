@@ -38,9 +38,14 @@ public class AddInvoice {
             @Override
             public void actionPerformed(ActionEvent e) {
                 invoice.setProduct(productField.getText());
-                invoice.setAmount((float) amountSpinner.getValue());
-                invoice.setValue(Float.parseFloat(valueField.getText()));
-                invoice.setTax(Float.parseFloat(taxField.getText()));
+                invoice.setAmount(new Float((int)amountSpinner.getValue()));
+                try {
+                    invoice.setValue(Float.parseFloat(valueField.getText()));
+                    invoice.setTax(Float.parseFloat(taxField.getText()));
+                } catch (NumberFormatException e1){
+                    System.out.println("Błęne dane");
+                    //TODO: Wyświetlić okienko że żle
+                }
                 invoice.setClientid(clientList.getSelectedIndex());
                 invoice.setTypeA((String) typeAList.getSelectedItem());
                 invoice.setTypeB((String) typeBList.getSelectedItem());

@@ -77,7 +77,7 @@ public class Communication {
                 // Dziadostwo :( nie pozwala na przeniesienie Invoice.setCuttentAmount w to miejsce
                 ResultSet res = st.executeQuery("SELECT * FROM projektIOIO");
                 res.last();
-                Invoice.setCurrentAmount(res.getRow());
+                Invoice.setCurrentAmount(res.getRow(), true);
 
                 conn.close();
             } catch (SQLException e) {
@@ -165,6 +165,10 @@ public class Communication {
                 Statement st = conn.createStatement();
                 st.executeUpdate("TRUNCATE TABLE projektIOIO");
 
+                ResultSet res = st.executeQuery("SELECT * FROM projektIOIO");
+                res.last();
+                Invoice.setCurrentAmount(res.getRow(), false);
+
                 conn.close();
 
             } catch (IllegalAccessException e) {
@@ -174,6 +178,10 @@ public class Communication {
             } catch (SQLException e) {
                 e.printStackTrace();
             } catch (ClassNotFoundException e) {
+                e.printStackTrace();
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            } catch (IOException e) {
                 e.printStackTrace();
             }
         }

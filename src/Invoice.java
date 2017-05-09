@@ -1,4 +1,5 @@
 import java.io.*;
+import java.util.NoSuchElementException;
 import java.util.Scanner;
 
 /**
@@ -22,9 +23,9 @@ public class Invoice {
       return currentAmount;
    }
 
-   public static void setCurrentAmount(int currentAmount) throws IOException, InterruptedException {
+   public static void setCurrentAmount(int currentAmount, boolean gen) throws IOException, InterruptedException {
        Invoice.currentAmount = currentAmount;
-       if(currentAmount % Conf.getAmount() == 0){   // ---> generuj raport co 1000 wpisow
+       if(currentAmount % Conf.getAmount() == 0 && gen){   // ---> generuj raport co 1000 wpisow
           System.out.println("Generuje raport");
 
           File raportfile = new File("raport.txt");
@@ -55,20 +56,12 @@ public class Invoice {
           zapis.println("Saldo: " + saldo);
           zapis.println("Ilosc wplywow: " + iloscIncome);
           zapis.println("Ilosc wydatkow: " + iloscOutcome);
-          zapis.println("Sumaryczny podatek: " + podatek);
+          zapis.println("Sumaryczny podatek: " + podatek);     //TODO: poprawić podatek za msc
           zapis.println();
           //------------------------------------------------------------------------
           zapis.close();
 
           new Communication().delete();      // ---> czysci baze danych po raporcie
-
-          /*
-          raport nie dodaje najnowszego wiersza bo tworzenie jest wywoływane przed dodaniem go w funkcji send
-
-
-
-          robie szczegoly do raportu
-        */
        }
    }
 
@@ -129,11 +122,21 @@ public class Invoice {
             String line;
             String[] data;
 
-            while((line = scanner.nextLine()) != null && sending){
+            while(sending){
+               try {
+                  line = scanner.nextLine();
+               } catch(NoSuchElementException e){
+                  break;
+               }
                data = line.split(",");
-               int clientID = Integer.valueOf(data[8].substring(6, data[8].length()));
-               float percent = Float.valueOf(data[7].substring(0, data[7].length()-1))/100;
-               new Communication().send(data[4], Float.parseFloat(data[6]), Float.parseFloat(data[5]), percent, clientID, data[2], data[3], data[0]);
+               try {
+                  int clientID = Integer.valueOf(data[8].substring(6, data[8].length()));
+                  float percent = Float.valueOf(data[7].substring(0, data[7].length() - 1)) / 100;
+                  new Communication().send(data[4], Float.parseFloat(data[6]), Float.parseFloat(data[5]), percent, clientID, data[2], data[3], data[0]);
+               } catch (NumberFormatException e){
+                  System.out.println("Błędne dane");
+                  //TODO: Informacja dla użykownika
+               }
             }
             System.out.println("READY");
          }

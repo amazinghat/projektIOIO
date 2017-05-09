@@ -5,7 +5,9 @@ public class Conf {
     private static int amount;
 
     public static int getAmount() {
-        amount = 200;
+        amount = 1000;
         return amount;
     }
+
+    //TODO: wrzucić do GUI setAmount
 }
