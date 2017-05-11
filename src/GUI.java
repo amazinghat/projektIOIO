@@ -1,9 +1,7 @@
 import javax.swing.*;
-import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.io.FileNotFoundException;
-import java.io.PrintWriter;
+import java.sql.SQLException;
 
 /**
  * Created by kuba on 05.04.17.
@@ -71,6 +69,11 @@ public class GUI {
             public void actionPerformed(ActionEvent e) {
                 if(new Communication().logIn(loginField.getText(), pwdField.getText())) {
                     stopButton.setEnabled(true);
+                    addInvoice.setEnabled(false);
+                    readButton.setEnabled(false);
+                    display.setEnabled(false);
+                    clearButton.setEnabled(false);
+                    showRaport.setEnabled(false);
                     Invoice.readFromFile();
                 }
             }
@@ -78,8 +81,20 @@ public class GUI {
         stopButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                Invoice.sending = false;
+                try {
+                    Communication.connectionForReadingFromFile.commit();
+                } catch (SQLException e1) {
+                    e1.printStackTrace();
+                }
+                Communication.closeConnectionForReadingFromFile();
                 Invoice.setSending(false);
-                stopButton.setEnabled(false);
+                stopButton.setEnabled(true);
+                addInvoice.setEnabled(true);
+                readButton.setEnabled(true);
+                display.setEnabled(true);
+                clearButton.setEnabled(true);
+                showRaport.setEnabled(true);
             }
         });
     }

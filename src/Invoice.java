@@ -1,4 +1,7 @@
 import java.io.*;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.SQLException;
 import java.util.NoSuchElementException;
 import java.util.Scanner;
 
@@ -15,9 +18,11 @@ public class Invoice {
    private float tax;
    private int clientid;
 
-   private static boolean sending;
+   public static boolean sending;
+    public static boolean willGenerate;
 
    static private int currentAmount;
+    static private int raportAmount = 0;
 
    public static int getCurrentAmount() {
       return currentAmount;
@@ -26,7 +31,7 @@ public class Invoice {
    public static void setCurrentAmount(int currentAmount, boolean gen) throws IOException, InterruptedException {
        Invoice.currentAmount = currentAmount;
        if(currentAmount % Conf.getAmount() == 0 && gen){   // ---> generuj raport co 1000 wpisow
-          System.out.println("Generuje raport");
+          System.out.println("Generuje raport" + String.valueOf(++raportAmount));
 
           File raportfile = new File("raport.txt");
           PrintWriter zapis = new PrintWriter(new FileWriter(raportfile, true));
@@ -62,6 +67,7 @@ public class Invoice {
           zapis.close();
 
           new Communication().delete();      // ---> czysci baze danych po raporcie
+           willGenerate = false;
        }
    }
 
@@ -100,7 +106,7 @@ public class Invoice {
    }
 
    public void saveToFile(){
-      new Communication().send(product, amount, value, tax, clientid, typeA, typeB, id);
+      new Communication().send(product, amount, value, tax, clientid, typeA, typeB, id, false);
    }
 
    public static void setSending(boolean sending) {
@@ -109,6 +115,7 @@ public class Invoice {
 
    public static void readFromFile(){
       sending = true;
+       willGenerate = false;
       new Thread(new Runnable() {
          @Override
          public void run() {
@@ -122,8 +129,20 @@ public class Invoice {
             String line;
             String[] data;
 
-            while(sending){
-               try {
+             Communication.setConnectionForReadingFromFile();
+            while(sending) {
+                while(willGenerate) if(false) willGenerate = true;
+                try {
+                    if(Communication.connectionForReadingFromFile.isClosed()){
+                        Communication.setConnectionForReadingFromFile();
+                    }
+                    if(currentAmount % Conf.getAmount() == Conf.getAmount()-1){
+                        willGenerate = true;
+                    }
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                }
+                try {
                   line = scanner.nextLine();
                } catch(NoSuchElementException e){
                   break;
@@ -132,7 +151,8 @@ public class Invoice {
                try {
                   int clientID = Integer.valueOf(data[8].substring(6, data[8].length()));
                   float percent = Float.valueOf(data[7].substring(0, data[7].length() - 1)) / 100;
-                  new Communication().send(data[4], Float.parseFloat(data[6]), Float.parseFloat(data[5]), percent, clientID, data[2], data[3], data[0]);
+
+                   new Communication().send(data[4], Float.parseFloat(data[6]), Float.parseFloat(data[5]), percent, clientID, data[2], data[3], data[0], true);
                } catch (NumberFormatException e){
                   System.out.println("Błędne dane");
                   //TODO: Informacja dla użykownika

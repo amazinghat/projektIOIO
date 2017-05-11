@@ -5,7 +5,7 @@ public class Conf {
     private static int amount;
 
     public static int getAmount() {
-        amount = 1000;
+        amount = 10000;
         return amount;
     }
 
