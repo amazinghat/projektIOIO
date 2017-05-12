@@ -6,7 +6,7 @@ import java.sql.SQLException;
 /**
  * Created by kuba on 05.04.17.
  */
-public class GUI {
+public class GUI implements OnEndReadingListener{
     private JButton addInvoice;
     private JPanel GUI;
     private JButton display;
@@ -74,7 +74,9 @@ public class GUI {
                     display.setEnabled(false);
                     clearButton.setEnabled(false);
                     showRaport.setEnabled(false);
-                    Invoice.readFromFile();
+                    Invoice invoice = new Invoice();
+                    invoice.setOnEndReadingListener(GUI.this);
+                    invoice.readFromFile();
                 }
             }
         });
@@ -82,14 +84,8 @@ public class GUI {
             @Override
             public void actionPerformed(ActionEvent e) {
                 Invoice.sending = false;
-                try {
-                    Communication.connectionForReadingFromFile.commit();
-                } catch (SQLException e1) {
-                    e1.printStackTrace();
-                }
-                Communication.closeConnectionForReadingFromFile();
                 Invoice.setSending(false);
-                stopButton.setEnabled(true);
+                stopButton.setEnabled(false);
                 addInvoice.setEnabled(true);
                 readButton.setEnabled(true);
                 display.setEnabled(true);
@@ -105,5 +101,10 @@ public class GUI {
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.pack();
         frame.setVisible(true);
+    }
+
+    @Override
+    public void endReading() {
+        stopButton.doClick();
     }
 }

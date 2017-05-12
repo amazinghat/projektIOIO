@@ -8,28 +8,36 @@ import java.util.ArrayList;
 public class Communication {
     static private String user;
 
-    public static Connection connectionForReadingFromFile;
+    static private boolean allow = true;
 
-    public static void setConnectionForReadingFromFile() {
+    //public static Connection connectionForReadingFromFile;
+
+
+    /*public static void setConnectionForReadingFromFile() {
         try {
             Communication.connectionForReadingFromFile = DriverManager.getConnection("jdbc:sqlite:projektIOIO");
             Communication.connectionForReadingFromFile.setAutoCommit(false);
         } catch (SQLException e) {
             e.printStackTrace();
         }
-    }
+    }*/
 
-    public static void closeConnectionForReadingFromFile(){
+    /*public static void closeConnectionForReadingFromFile(){
         try {
             connectionForReadingFromFile.close();
         } catch (SQLException e) {
             e.printStackTrace();
         }
+    }*/
+
+    private static void waitForAllow(){
+        while(!allow) if(false) allow = false;
+        allow = false;
     }
 
     public boolean logIn(String username, String pwd){
         boolean dec = false;
-
+        waitForAllow();
         try {
             Connection connection = DriverManager.getConnection("jdbc:sqlite:projektIOIO");
             Statement statement = connection.createStatement();
@@ -51,6 +59,8 @@ public class Communication {
             e.printStackTrace();
         }
 
+        allow = true;
+
         return dec;
     }
 
@@ -59,12 +69,12 @@ public class Communication {
         Połączyć się z nią można jedynie z wewnątrz sieci AGH
         lub za pomocą VPN
      */
-    public void send(String product, float amount, float value, float tax, int clientid, String typeA, String typeB, String id, boolean fromFile){
+    public void send(String product, float amount, float value, float tax, int clientid, String typeA, String typeB, String id){
         if(user.equals("boss") || user.equals("accountant")) {
 
             int il = 0;
             try {
-                if(!fromFile){
+                    waitForAllow();
                     Connection connection = DriverManager.getConnection("jdbc:sqlite:projektIOIO");
 
                     Statement statement = connection.createStatement();
@@ -76,32 +86,52 @@ public class Communication {
                     il = rs.getInt(1);
 
                     connection.close();
-                }
-                else{
-                    Statement statement = connectionForReadingFromFile.createStatement();
-
-                    String data = "(" + "'" + product + "'" + "," + String.valueOf(amount) + "," + String.valueOf(value) + "," + String.valueOf(tax) + "," + String.valueOf(clientid) + "," + "'" + typeA + "'" + "," + "'" + typeB + "'" + "," + "'" + id + "'" + ")";
-                    statement.executeUpdate("INSERT INTO data VALUES " + data);
-
-                    ResultSet rs = statement.executeQuery("SELECT Count(*) FROM data");
-                    il = rs.getInt(1);
-
-                    if(Invoice.willGenerate){
-                        connectionForReadingFromFile.commit();
-                        connectionForReadingFromFile.close();
+                    allow = true;
+                    try {
+                        new Invoice().generateRaport();
+                    } catch (IOException e) {
+                        e.printStackTrace();
                     }
-                }
             } catch (SQLException e) {
                 e.printStackTrace();
             }
+            Invoice.setCurrentAmount(il);
+        }
+    }
+
+    public void sendManyData(Object[][] dt){
+        if(user.equals("boss") || user.equals("accountant")) {
+
+            int il = 0;
             try {
-                Invoice.setCurrentAmount(il, true);
-            } catch (IOException e) {
-                e.printStackTrace();
-            } catch (InterruptedException e) {
+                waitForAllow();
+                Connection connection = DriverManager.getConnection("jdbc:sqlite:projektIOIO");
+                connection.setAutoCommit(false);
+                Statement statement = connection.createStatement();
+
+                for(int i=0;i<Conf.getAmount();i++) {
+                    String data = "(" + "'" + dt[i][0] + "'" + "," + String.valueOf(dt[i][1]) + "," + String.valueOf(dt[i][2]) + "," + String.valueOf(dt[i][3]) + "," + String.valueOf(dt[i][4]) + "," + "'" + dt[i][5] + "'" + "," + "'" + dt[i][6] + "'" + "," + "'" + dt[i][7] + "'" + ")";
+                    statement.executeUpdate("INSERT INTO data VALUES " + data);
+                }
+
+                connection.commit();
+
+                ResultSet rs = statement.executeQuery("SELECT Count(*) FROM data");
+                Invoice.setCurrentAmount(rs.getInt(1));
+
+                connection.close();
+
+                allow = true;
+
+                try {
+                    new Invoice().generateRaport();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+
+            } catch (SQLException e) {
                 e.printStackTrace();
             }
-
         }
     }
 
@@ -110,6 +140,7 @@ public class Communication {
         if(user.equals("boss")) {
 
             try {
+                waitForAllow();
                 Connection connection = DriverManager.getConnection("jdbc:sqlite:projektIOIO");
                 Statement statement = connection.createStatement();
 
@@ -132,6 +163,7 @@ public class Communication {
                 }
 
                 connection.close();
+                allow = true;
             } catch (SQLException e) {
                 e.printStackTrace();
             }
@@ -148,7 +180,7 @@ public class Communication {
 
     public void delete() {                                       // funkcja do wyczyszczenia tabeli
         if (user.equals("boss")) {                               // z przywroceniem iteracji wierszy od 0
-
+            waitForAllow();
             try {
                 Connection connection = DriverManager.getConnection("jdbc:sqlite:projektIOIO");
 
@@ -156,17 +188,13 @@ public class Communication {
                 statement.executeUpdate("DELETE FROM data");
 
                 ResultSet rs = statement.executeQuery("SELECT Count(*) FROM data");
-                Invoice.setCurrentAmount(rs.getInt(1), false);
+                Invoice.setCurrentAmount(rs.getInt(1));
 
                 connection.close();
             } catch (SQLException e) {
                 e.printStackTrace();
-            } catch (InterruptedException e) {
-                e.printStackTrace();
-            } catch (IOException e) {
-                e.printStackTrace();
             }
-
+            allow = true;
         }
     }
 
