@@ -10,26 +10,6 @@ public class Communication {
 
     static private boolean allow = true;
 
-    //public static Connection connectionForReadingFromFile;
-
-
-    /*public static void setConnectionForReadingFromFile() {
-        try {
-            Communication.connectionForReadingFromFile = DriverManager.getConnection("jdbc:sqlite:projektIOIO");
-            Communication.connectionForReadingFromFile.setAutoCommit(false);
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-    }*/
-
-    /*public static void closeConnectionForReadingFromFile(){
-        try {
-            connectionForReadingFromFile.close();
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-    }*/
-
     private static void waitForAllow(){
         while(!allow) if(false) allow = false;
         allow = false;
@@ -65,9 +45,7 @@ public class Communication {
     }
 
     /*
-        Wysłanie wprowadzonych danych do bazy MySQL
-        Połączyć się z nią można jedynie z wewnątrz sieci AGH
-        lub za pomocą VPN
+        Wysłanie wprowadzonych danych do bazy SQLite
      */
     public void send(String product, float amount, float value, float tax, int clientid, String typeA, String typeB, String id){
         if(user.equals("boss") || user.equals("accountant")) {
@@ -102,7 +80,6 @@ public class Communication {
     public void sendManyData(Object[][] dt){
         if(user.equals("boss") || user.equals("accountant")) {
 
-            int il = 0;
             try {
                 waitForAllow();
                 Connection connection = DriverManager.getConnection("jdbc:sqlite:projektIOIO");
@@ -135,7 +112,7 @@ public class Communication {
         }
     }
 
-    public String[][] receive(){
+    public String[][] receive(int n){
         String[][] data = null;
         if(user.equals("boss")) {
 
@@ -145,9 +122,13 @@ public class Communication {
                 Statement statement = connection.createStatement();
 
                 ResultSet rs = statement.executeQuery("SELECT Count(*) FROM data");
-                data = new String[rs.getInt(1)][8];
+                if(n>rs.getInt(1)) n = rs.getInt(1);
 
-                rs = statement.executeQuery("SELECT * FROM data");
+                data = new String[n][8];
+
+                String amount = "";
+                if(n!=0) amount = " LIMIT " + String.valueOf(n);
+                rs = statement.executeQuery("SELECT * FROM data" + amount);
 
                 int i = 0;
                 while (rs.next()) {
@@ -178,14 +159,16 @@ public class Communication {
     }
 
 
-    public void delete() {                                       // funkcja do wyczyszczenia tabeli
+    public void delete(int n) {                                       // funkcja do wyczyszczenia tabeli
         if (user.equals("boss")) {                               // z przywroceniem iteracji wierszy od 0
             waitForAllow();
             try {
                 Connection connection = DriverManager.getConnection("jdbc:sqlite:projektIOIO");
 
                 Statement statement = connection.createStatement();
-                statement.executeUpdate("DELETE FROM data");
+                String amount = "";
+                if(n!=0) amount =  " where Number in (select Number from data limit " + String.valueOf(n) + ")";
+                statement.executeUpdate("delete from data" + amount);
 
                 ResultSet rs = statement.executeQuery("SELECT Count(*) FROM data");
                 Invoice.setCurrentAmount(rs.getInt(1));

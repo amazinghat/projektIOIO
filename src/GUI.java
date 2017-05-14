@@ -59,7 +59,7 @@ public class GUI implements OnEndReadingListener{
             @Override                                                           // mozna wywalic a moze tez zostac
             public void actionPerformed(ActionEvent e) {
                 if(new Communication().logIn(loginField.getText(), pwdField.getText())) {
-                    new Communication().delete();
+                    new Communication().delete(0);
                 }
             }
         });
@@ -106,5 +106,9 @@ public class GUI implements OnEndReadingListener{
     @Override
     public void endReading() {
         stopButton.doClick();
+        JFrame frame = new JFrame("INFO");
+        frame.setContentPane(new ReadyPanel(frame).getReadyPanel());
+        frame.pack();
+        frame.setVisible(true);
     }
 }

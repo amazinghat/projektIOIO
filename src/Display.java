@@ -25,7 +25,7 @@ public class Display {
     public Display(JFrame frame) {
         jframe = frame;
         table1.setRowSelectionAllowed(true);
-        String data[][] = new Communication().receive();
+        String data[][] = new Communication().receive(0);
         String[] column = {"Product", "Amount", "Value", "Tax", "ClientID", "TypeA", "TypeB", "Number"};
 
         DefaultTableModel model = new DefaultTableModel(data, column){

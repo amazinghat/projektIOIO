@@ -33,12 +33,12 @@ public class Invoice implements EndReadingObservable{
    }
 
    public void generateRaport() throws IOException {
-      if(currentAmount % Conf.getAmount() == 0){   // ---> generuj raport co 1000 wpisow
+      if(currentAmount >= Conf.getAmount()){   // ---> generuj raport co 1000 wpisow
          System.out.println("Generuje raport" + String.valueOf(++raportAmount));
 
          File raportfile = new File("raport.txt");
          PrintWriter zapis = new PrintWriter(new FileWriter(raportfile, true));
-         String [][] raport = new Communication().receive();
+         String[][] raport = new Communication().receive(Conf.getAmount());
 
          float przychod = 0, wydatek = 0, saldo, podatek = 0;
          int iloscIncome = 0, iloscOutcome = 0;
@@ -69,7 +69,9 @@ public class Invoice implements EndReadingObservable{
          //------------------------------------------------------------------------
          zapis.close();
 
-         new Communication().delete();      // ---> czysci baze danych po raporcie
+         new Communication().delete(Conf.getAmount());      // ---> czysci baze danych po raporcie
+
+         if(currentAmount >= Conf.getAmount()) generateRaport();
       }
    }
 
@@ -163,7 +165,6 @@ public class Invoice implements EndReadingObservable{
                 if(sending) new Communication().sendManyData(dataTable);
             }
             System.out.println("READY");
-            //TODO: Informacja że gotowe
             onEndReadingListener.endReading();
          }
       }).start();
