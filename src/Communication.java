@@ -122,7 +122,7 @@ public class Communication {
                 Statement statement = connection.createStatement();
 
                 ResultSet rs = statement.executeQuery("SELECT Count(*) FROM data");
-                if(n>rs.getInt(1)) n = rs.getInt(1);
+                if(n>rs.getInt(1) || n==0) n = rs.getInt(1);
 
                 data = new String[n][8];
 

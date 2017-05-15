@@ -42,6 +42,12 @@ public class AddInvoice {
                 try {
                     invoice.setValue(Float.parseFloat(valueField.getText()));
                     invoice.setTax(Float.parseFloat(taxField.getText()));
+                    invoice.setClientid(clientList.getSelectedIndex());
+                    invoice.setTypeA((String) typeAList.getSelectedItem());
+                    invoice.setTypeB((String) typeBList.getSelectedItem());
+                    idLabel.setText(invoice.generateNumber());
+
+                    invoice.saveToFile();
                 } catch (NumberFormatException e1){
                     System.out.println("Błęne dane");
                     JFrame frame = new JFrame("ERROR");
@@ -50,12 +56,6 @@ public class AddInvoice {
                     frame.setVisible(true);
                     frame.setLocationRelativeTo(null);
                 }
-                invoice.setClientid(clientList.getSelectedIndex());
-                invoice.setTypeA((String) typeAList.getSelectedItem());
-                invoice.setTypeB((String) typeBList.getSelectedItem());
-                idLabel.setText(invoice.generateNumber());
-
-                invoice.saveToFile();
 
                 jframe.dispatchEvent(new WindowEvent(jframe, WindowEvent.WINDOW_CLOSING));
             }

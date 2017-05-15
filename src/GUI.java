@@ -100,7 +100,7 @@ public class GUI implements OnEndReadingListener{
             @Override
             public void actionPerformed(ActionEvent e) {
                 Conf.setAmount(Integer.parseInt(wpisyField.getText()));
-                wpisyField.setText("Ustawiono.");
+                //wpisyField.setText("Ustawiono.");
             }
         });
     }
