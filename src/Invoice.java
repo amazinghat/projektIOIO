@@ -122,6 +122,10 @@ public class Invoice implements EndReadingObservable{
       Invoice.sending = sending;
    }
 
+   /*
+      Wczytuje dane z pliku i wysyła je do bazy danych
+      Robi to dopóki zmienna sending==true
+    */
    public void readFromFile(){
       sending = true;
       new Thread(new Runnable() {
