@@ -17,6 +17,8 @@ public class GUI implements OnEndReadingListener{
     private JButton clearButton;
     private JButton readButton;
     private JButton stopButton;
+    private JTextField wpisyField;
+    private JButton wpisyButton;
 
     public GUI() {
         stopButton.setEnabled(false);
@@ -55,8 +57,8 @@ public class GUI implements OnEndReadingListener{
             }
         });
 
-        clearButton.addActionListener(new ActionListener() {                    // testowy guzik do spr czy czyszczenie dziala
-            @Override                                                           // mozna wywalic a moze tez zostac
+        clearButton.addActionListener(new ActionListener() {
+            @Override
             public void actionPerformed(ActionEvent e) {
                 if(new Communication().logIn(loginField.getText(), pwdField.getText())) {
                     new Communication().delete(0);
@@ -93,6 +95,14 @@ public class GUI implements OnEndReadingListener{
                 showRaport.setEnabled(true);
             }
         });
+
+        wpisyButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                Conf.setAmount(Integer.parseInt(wpisyField.getText()));
+                wpisyField.setText("Ustawiono.");
+            }
+        });
     }
 
     public static void main(String[] args) {
@@ -101,6 +111,7 @@ public class GUI implements OnEndReadingListener{
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.pack();
         frame.setVisible(true);
+        frame.setLocationRelativeTo(null);
     }
 
     @Override

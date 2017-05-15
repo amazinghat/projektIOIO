@@ -2,12 +2,13 @@
  * Created by Administrator on 2017-04-11.
  */
 public class Conf {
-    private static int amount;
+    private static int amount = 50000;
 
     public static int getAmount() {
-        amount = 10000;
         return amount;
     }
 
-    //TODO: wrzucić do GUI setAmount
+    public static void setAmount(int wpisy) {
+        amount = wpisy;
+    }
 }

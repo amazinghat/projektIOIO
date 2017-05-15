@@ -44,7 +44,11 @@ public class AddInvoice {
                     invoice.setTax(Float.parseFloat(taxField.getText()));
                 } catch (NumberFormatException e1){
                     System.out.println("Błęne dane");
-                    //TODO: Wyświetlić okienko że żle
+                    JFrame frame = new JFrame("ERROR");
+                    frame.setContentPane(new WrongData(frame).getWrongData());
+                    frame.pack();
+                    frame.setVisible(true);
+                    frame.setLocationRelativeTo(null);
                 }
                 invoice.setClientid(clientList.getSelectedIndex());
                 invoice.setTypeA((String) typeAList.getSelectedItem());
