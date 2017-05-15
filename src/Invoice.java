@@ -1,3 +1,4 @@
+import javax.swing.*;
 import java.io.*;
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -33,38 +34,42 @@ public class Invoice implements EndReadingObservable{
    }
 
    public void generateRaport() throws IOException {
-      if(currentAmount >= Conf.getAmount()){   // ---> generuj raport co 1000 wpisow
+      if(currentAmount >= Conf.getAmount()){                                           // ---> generuj raport co zadana ilosc wpisow
          System.out.println("Generuje raport" + String.valueOf(++raportAmount));
 
-         File raportfile = new File("raport.txt");
-         PrintWriter zapis = new PrintWriter(new FileWriter(raportfile, true));
+         File raportfile = new File("raport.txt");                                     // tworzy plik tekstowy z raportem
+         PrintWriter zapis = new PrintWriter(new FileWriter(raportfile, true));        // nowy raport dopisuje do istniejacego pliku
          String[][] raport = new Communication().receive(Conf.getAmount());
 
-         float przychod = 0, wydatek = 0, saldo, podatek = 0;
+         float przychod = 0, wydatek = 0, saldo, podatekinc = 0, podatekout = 0;
          int iloscIncome = 0, iloscOutcome = 0;
 
-
          //-------------------------ZESTAWIENIE TRANSAKCJI------------------------
+
          for (int i = 0; i < raport.length ; i++) {
-            zapis.print("Transakcja " + i + ": " + raport[i][0] + " " + raport[i][1] + " " + raport[i][2] + " " + raport[i][3] + " " + raport[i][4] + " " + raport[i][5] + " " + raport[i][6] + " " + raport[i][7]);
+            zapis.print("Transakcja " + i + ": |produkt: " + raport[i][0] + " |ilosc: " + raport[i][1] + " |wartosc: " +
+                    raport[i][2]+ "zl" + " |podatek: " + raport[i][3] + "%" + " |ID: " + raport[i][4] + " |typ: " + raport[i][5] +
+                    " |rachunek: " + raport[i][6] + " |numer: " + raport[i][7]);
             zapis.println();
 
             if(raport[i][5].equals("income")){
                iloscIncome++;
                przychod = przychod + Float.parseFloat(raport[i][2]);
+               podatekinc = podatekinc + Float.parseFloat(raport[i][3]) * Float.parseFloat(raport[i][2]);
             }
             else if(raport[i][5].equals("outcome")){
                iloscOutcome++;
                wydatek = wydatek + Float.parseFloat(raport[i][2]);
+               podatekout = podatekout + Float.parseFloat(raport[i][3]) * Float.parseFloat(raport[i][2]);
             }
-            podatek = podatek + Float.parseFloat(raport[i][3]);
          }
          saldo = przychod - wydatek;
          zapis.println("Ilosc transakcji: " + raport.length);
          zapis.println("Saldo: " + saldo);
          zapis.println("Ilosc wplywow: " + iloscIncome);
          zapis.println("Ilosc wydatkow: " + iloscOutcome);
-         zapis.println("Sumaryczny podatek: " + podatek);     //TODO: poprawić podatek za msc
+         zapis.println("Sumaryczny podatek przychodow: " + podatekinc);
+         zapis.println("Sumaryczny podatek wydatkow: " + podatekout);
          zapis.println();
          //------------------------------------------------------------------------
          zapis.close();
@@ -157,7 +162,11 @@ public class Invoice implements EndReadingObservable{
                       dataTable[i][7] = data[0];
                    } catch (NumberFormatException e){
                       System.out.println("Błędne dane");
-                      //TODO: Informacja dla użykownika
+                      JFrame frame = new JFrame("ERROR");
+                      frame.setContentPane(new WrongData(frame).getWrongData());
+                      frame.pack();
+                      frame.setVisible(true);
+                      frame.setLocationRelativeTo(null);
                    }
 
                    i++;
