@@ -3,9 +3,10 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.WindowEvent;
 
-/**
- * Created by Administrator on 2017-04-25.
- */
+/**---------------------------------------------------------------------------------------------
+ * Klasa służy do sterowania GUI ręcznego wprowadzania wpisów do bazy danych
+ ----------------------------------------------------------------------------------------------*/
+
 public class AddInvoice {
     private JFrame jframe;
     private JPanel Invoice;
@@ -21,17 +22,23 @@ public class AddInvoice {
 
     public AddInvoice(JFrame frame) {
         this.jframe = frame;
-        // Lista Klientów
-        // Dodawanie elementow do listy w GUI
-        // To może być wczytywane z pliku później, albo z bazy jakiejś
+
+        /**------------------------------------------------------------------------------------------
+         * Lista Klientów
+         * Dodawanie elementow do listy w GUI
+         * To może być wczytywane z pliku później, albo z jakiejś bazy
+         -------------------------------------------------------------------------------------------*/
+
         clientList.addItem("[0] Ktos tam");
         clientList.addItem("[1] Ktos tam inny");
         clientList.addItem("[2] Ktos tam całkiem inny");
 
+        /**-------------------------------------------------------------------------------------------
+         * Automatyczne generowanie numeru faktury na początku
+         * Oraz stworzenie nowego obiektu faktury
+         * Może od potem zostać zapisany do pliku(Invoice.saveToFile) lub bazy(Invoice.write)
+         --------------------------------------------------------------------------------------------*/
 
-        // Automatyczne generowanie numeru faktury na początku
-        // Oraz stworzenie nowego obiektu faktury
-        // Może od potem zostać zapisany do pliku(Invoice.saveToFile) lub bazy(Invoice.write)
         Invoice invoice = new Invoice();
 
         addButton.addActionListener(new ActionListener() {

@@ -6,9 +6,12 @@ import java.sql.SQLException;
 import java.util.NoSuchElementException;
 import java.util.Scanner;
 
-/**
+/**----------------------------------------------------------------------------------------------------------
  * Created by Administrator on 2017-04-11.
- */
+ *
+ * Klasa zawiera funkcje generującą raporty o fakturach oraz wczytującą dane do bazy z pliku
+ ----------------------------------------------------------------------------------------------------------*/
+
 public class Invoice implements EndReadingObservable{
    private String id;
    private String typeA;
@@ -29,7 +32,7 @@ public class Invoice implements EndReadingObservable{
       return currentAmount;
    }
 
-   public static void setCurrentAmount(int currentAmount) {
+   public static void setCurrentAmount(int currentAmount) {             // funkcja zmienia na bieżąco ilość aktualnie przechowywanych wpisów
        Invoice.currentAmount = currentAmount;
    }
 
@@ -44,7 +47,9 @@ public class Invoice implements EndReadingObservable{
          float przychod = 0, wydatek = 0, saldo, podatekinc = 0, podatekout = 0;
          int iloscIncome = 0, iloscOutcome = 0;
 
-         //-------------------------ZESTAWIENIE TRANSAKCJI------------------------
+         /**----------------------------------------------------------------------------------------------------------------
+          * Zestawienie transakcji do tworzenia raportu ilościowego i jakościowego
+          ----------------------------------------------------------------------------------------------------------------*/
 
          for (int i = 0; i < raport.length ; i++) {
             zapis.print("Transakcja " + i + ": |produkt: " + raport[i][0] + " |ilosc: " + raport[i][1] + " |wartosc: " +
@@ -122,10 +127,11 @@ public class Invoice implements EndReadingObservable{
       Invoice.sending = sending;
    }
 
-   /*
-      Wczytuje dane z pliku i wysyła je do bazy danych
-      Robi to dopóki zmienna sending==true
-    */
+   /**----------------------------------------------------------------------------------------------------
+    * Wczytuje dane z pliku i wysyła je do bazy danych
+    * Robi to dopóki zmienna sending==true
+    -----------------------------------------------------------------------------------------------------*/
+
    public void readFromFile(){
       sending = true;
       new Thread(new Runnable() {

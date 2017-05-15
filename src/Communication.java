@@ -2,12 +2,13 @@ import java.io.IOException;
 import java.sql.*;
 import java.util.ArrayList;
 
-/**
+/**--------------------------------------------------------------------------------
  * Created by Administrator on 2017-04-11.
  *
  * Są tu funkcje służące głównie do komunikacji z bazą danych SQLite:
- *  logowanie, wysyłanie, odbieranie i usuwanie wpisów z bazy
- */
+ * logowanie, wysyłanie, odbieranie i usuwanie wpisów z bazy
+ --------------------------------------------------------------------------------**/
+
 public class Communication {
     static private String user;
 
@@ -18,11 +19,12 @@ public class Communication {
         allow = false;
     }
 
-    /*
-        Logowanie użytkowników
-        Po udanym logowaniu zmienna user równa jest nazwie zalogowanego użytkownika
-        Jeśli logowanie się nie powiodło to zmienna user jest równa null
-     */
+    /**-------------------------------------------------------------------------------
+     * Logowanie użytkowników
+     * Po udanym logowaniu zmienna user równa jest nazwie zalogowanego użytkownika
+     * Jeśli logowanie się nie powiodło to zmienna user jest równa null
+     ------------------------------------------------------------------------------**/
+
     public boolean logIn(String username, String pwd){
         boolean dec = false;
         waitForAllow();
@@ -52,11 +54,12 @@ public class Communication {
         return dec;
     }
 
-    /*
-        Wysłanie wprowadzonych danych do bazy SQLite
-        Po wysłaniu wpisu funkcja ustawnia wartość amount w klasie Invoice
-        oraz wywołuje funkcje do generowania raportu
-     */
+    /**----------------------------------------------------------------------------------------
+     * Wysłanie wprowadzonych danych do bazy SQLite
+     * Po wysłaniu wpisu funkcja ustawnia wartość amount w klasie Invoice
+     * oraz wywołuje funkcje Invoice().generateRaport() do generowania raportu
+     ---------------------------------------------------------------------------------------**/
+
     public void send(String product, float amount, float value, float tax, int clientid, String typeA, String typeB, String id){
         if(user.equals("boss") || user.equals("accountant")) {
 
@@ -87,10 +90,11 @@ public class Communication {
         }
     }
 
-    /*
-        Podobna funkcjonalność co przypadku funkcji send
-        tylko ta funkcja służy do wysyłania wielu wpisów na raz
-     */
+    /**-----------------------------------------------------------------------------------
+     * Podobna funkcjonalność co przypadku funkcji send
+     * tylko ta funkcja służy do wysyłania wielu wpisów na raz
+     * ---------------------------------------------------------------------------------**/
+
     public void sendManyData(Object[][] dt){
         if(user.equals("boss") || user.equals("accountant")) {
 
@@ -126,10 +130,11 @@ public class Communication {
         }
     }
 
-    /*
-        Funkcja pobiera dane z bazy i zwraca je w postaci tablicy
-        Argument n, który przyjmuje funkcja służy do określnie ilości wpisów do odebrania
-     */
+    /**--------------------------------------------------------------------------------------------------------
+     * Funkcja pobiera dane z bazy i zwraca je w postaci tablicy
+     * Argument n, który przyjmuje funkcja służy do określnie ilości wpisów do odebrania
+     * ------------------------------------------------------------------------------------------------------**/
+
     public String[][] receive(int n){
         String[][] data = null;
         if(user.equals("boss")) {
@@ -176,10 +181,11 @@ public class Communication {
         return data;
     }
 
-    /*
-        Funkcja do wyczyszczenia tabeli z przywroceniem iteracji wierszy od 0
-        Argument n służy do określnia ilości wpisów do usunięcia
-     */
+    /** ------------------------------------------------------------------------------------------
+     * Funkcja do wyczyszczenia tabeli z przywroceniem iteracji wierszy od 0
+     * Argument n służy do określnia ilości wpisów do usunięcia
+     * -----------------------------------------------------------------------------------------**/
+
     public void delete(int n) {
         if (user.equals("boss")) {
             waitForAllow();

@@ -3,9 +3,10 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.WindowEvent;
 
-/**
- * Created by kuba on 15.05.17.
- */
+/**-----------------------------------------------------------------------------
+ * Okienko POPUP informujące o gotowości wczytanych danych
+ ------------------------------------------------------------------------------*/
+
 public class ReadyPanel {
     private JPanel readyPanel;
     private JButton OKButton;

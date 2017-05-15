@@ -6,17 +6,18 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.WindowEvent;
 
-/**
+/**-------------------------------------------------------------------------------------------------
  * Created by Administrator on 2017-04-25.
- */
+ *
+ * Klasa sterująca oknem wyświetlającym aktualne przechowywane wpisy
+ -------------------------------------------------------------------------------------------------*/
+
 public class Display {
     private JFrame jframe;
     private JPanel panel1;
     private JTable table1;
     private JButton button1;
-    private JButton generujFaktureButton;
     private JPanel buttonPanel;
-    private JButton genButton;
 
     public JPanel getPanel1() {
         return panel1;

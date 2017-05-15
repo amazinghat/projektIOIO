@@ -1,14 +1,16 @@
-/**
- * Created by Administrator on 2017-04-11.
- */
-public class Conf {
+/**----------------------------------------------------------------------------------------------
+ * Klasa zawierająca parametr określający ilość wpisów do wygenerowania raportu,
+ * ustawiany za pomocą GUI
+ ----------------------------------------------------------------------------------------------*/
+
+class Conf {
     private static int amount = 50000;
 
-    public static int getAmount() {
+    static int getAmount() {
         return amount;
     }
 
-    public static void setAmount(int wpisy) {
+    static void setAmount(int wpisy) {
         amount = wpisy;
-    }
+    }       // funkcja wywoływana w GUI do ustawiania wartości
 }

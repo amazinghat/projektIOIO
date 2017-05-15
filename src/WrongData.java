@@ -1,6 +1,10 @@
 import javax.swing.*;
 import java.awt.event.*;
 
+/**--------------------------------------------------------------------------------------------
+ * Okienko POPUP informujące o błędnie wprowadzonych danych
+ --------------------------------------------------------------------------------------------*/
+
 public class WrongData extends JDialog {
     private JPanel wrongData;
     private JButton OKButton;
