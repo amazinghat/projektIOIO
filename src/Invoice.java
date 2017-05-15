@@ -162,6 +162,8 @@ public class Invoice implements EndReadingObservable{
                       int clientID = Integer.valueOf(data[8].substring(6, data[8].length()));
                       float percent = Float.valueOf(data[7].substring(0, data[7].length() - 1)) / 100;
 
+                      // TODO: clientID jest opcjonalne
+
                       dataTable[i][0] = data[4];
                       dataTable[i][1] = Float.parseFloat(data[6]);
                       dataTable[i][2] = Float.parseFloat(data[5]);

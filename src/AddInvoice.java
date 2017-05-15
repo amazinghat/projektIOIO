@@ -2,6 +2,7 @@ import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.WindowEvent;
+import java.io.IOException;
 
 /**---------------------------------------------------------------------------------------------
  * Klasa służy do sterowania GUI ręcznego wprowadzania wpisów do bazy danych
@@ -19,6 +20,7 @@ public class AddInvoice {
     private JButton addButton;
     private JLabel idLabel;
     private JSpinner amountSpinner;
+    private JButton fakturaButton;
 
     public AddInvoice(JFrame frame) {
         this.jframe = frame;
@@ -65,6 +67,17 @@ public class AddInvoice {
                 }
 
                 jframe.dispatchEvent(new WindowEvent(jframe, WindowEvent.WINDOW_CLOSING));
+            }
+        });
+
+        fakturaButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                try {
+                    Generator.generate(productField.getText(), new Float((int)amountSpinner.getValue()), Float.parseFloat(valueField.getText()), Float.parseFloat(taxField.getText()), clientList.getSelectedIndex());
+                } catch (IOException e1) {
+                    e1.printStackTrace();
+                }
             }
         });
     }

@@ -1,22 +1,33 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="9cc2388c-42a0-45c2-b8ac-741fc8806db0" name="Default" comment="Komentarze">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/IOIO/Communication.class" afterPath="$PROJECT_DIR$/out/production/IOIO/Communication.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/IOIO/Display.class" afterPath="$PROJECT_DIR$/out/production/IOIO/Display.class" />
+    <list default="true" id="9cc2388c-42a0-45c2-b8ac-741fc8806db0" name="Default" comment="Faktura">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/IOIO/AddInvoice$1.class" afterPath="$PROJECT_DIR$/out/production/IOIO/AddInvoice$1.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/IOIO/AddInvoice.class" afterPath="$PROJECT_DIR$/out/production/IOIO/AddInvoice.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/IOIO/Conf.class" afterPath="$PROJECT_DIR$/out/production/IOIO/Conf.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/IOIO/Display$1.class" afterPath="$PROJECT_DIR$/out/production/IOIO/Display$1.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/IOIO/Display$2.class" afterPath="$PROJECT_DIR$/out/production/IOIO/Display$2.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/IOIO/GUI$1.class" afterPath="$PROJECT_DIR$/out/production/IOIO/GUI$1.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/IOIO/GUI$2.class" afterPath="$PROJECT_DIR$/out/production/IOIO/GUI$2.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/IOIO/GUI$3.class" afterPath="$PROJECT_DIR$/out/production/IOIO/GUI$3.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/IOIO/GUI$4.class" afterPath="$PROJECT_DIR$/out/production/IOIO/GUI$4.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/IOIO/GUI$5.class" afterPath="$PROJECT_DIR$/out/production/IOIO/GUI$5.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/IOIO/GUI$6.class" afterPath="$PROJECT_DIR$/out/production/IOIO/GUI$6.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/IOIO/GUI$7.class" afterPath="$PROJECT_DIR$/out/production/IOIO/GUI$7.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/IOIO/GUI.class" afterPath="$PROJECT_DIR$/out/production/IOIO/GUI.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/IOIO/Invoice$1.class" afterPath="$PROJECT_DIR$/out/production/IOIO/Invoice$1.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/IOIO/Invoice.class" afterPath="$PROJECT_DIR$/out/production/IOIO/Invoice.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/IOIO/ReadyPanel$1.class" afterPath="$PROJECT_DIR$/out/production/IOIO/ReadyPanel$1.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/IOIO/ReadyPanel.class" afterPath="$PROJECT_DIR$/out/production/IOIO/ReadyPanel.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/IOIO/WrongData$1.class" afterPath="$PROJECT_DIR$/out/production/IOIO/WrongData$1.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/IOIO/WrongData.class" afterPath="$PROJECT_DIR$/out/production/IOIO/WrongData.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/projektIOIO" afterPath="$PROJECT_DIR$/projektIOIO" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/DataInputGroupA.csv" afterPath="$PROJECT_DIR$/DataInputGroupA.csv" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/AddInvoice.form" afterPath="$PROJECT_DIR$/src/AddInvoice.form" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/AddInvoice.java" afterPath="$PROJECT_DIR$/src/AddInvoice.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Communication.java" afterPath="$PROJECT_DIR$/src/Communication.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Conf.java" afterPath="$PROJECT_DIR$/src/Conf.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Display.form" afterPath="$PROJECT_DIR$/src/Display.form" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Display.java" afterPath="$PROJECT_DIR$/src/Display.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/GUI.java" afterPath="$PROJECT_DIR$/src/GUI.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Generator.java" afterPath="$PROJECT_DIR$/src/Generator.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Invoice.java" afterPath="$PROJECT_DIR$/src/Invoice.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/ReadyPanel.java" afterPath="$PROJECT_DIR$/src/ReadyPanel.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/WrongData.java" afterPath="$PROJECT_DIR$/src/WrongData.java" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -38,8 +49,8 @@
       <file leaf-file-name="Communication.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Communication.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="527">
-              <caret line="31" column="91" selection-start-line="31" selection-start-column="91" selection-end-line="31" selection-end-column="91" />
+            <state relative-caret-position="-2676">
+              <caret line="18" column="22" selection-start-line="18" selection-start-column="22" selection-end-line="18" selection-end-column="22" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -47,25 +58,45 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Conf.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="Conf.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Conf.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="204">
-              <caret line="12" column="38" selection-start-line="12" selection-start-column="38" selection-end-line="12" selection-end-column="38" />
+            <state relative-caret-position="85">
+              <caret line="5" column="6" selection-start-line="5" selection-start-column="6" selection-end-line="5" selection-end-column="6" />
               <folding>
                 <element signature="e#385#386#0" expanded="true" />
                 <element signature="e#414#415#0" expanded="true" />
+                <element signature="e#454#455#0" expanded="true" />
                 <element signature="e#484#485#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
+      <file leaf-file-name="Generator.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/Generator.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="867">
+              <caret line="51" column="0" selection-start-line="51" selection-start-column="0" selection-end-line="51" selection-end-column="0" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="AddInvoice.form" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/AddInvoice.form">
+          <provider selected="true" editor-type-id="ui-designer">
+            <state />
+          </provider>
+        </entry>
+      </file>
       <file leaf-file-name="Invoice.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Invoice.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="267">
-              <caret line="31" column="13" selection-start-line="31" selection-start-column="13" selection-end-line="31" selection-end-column="13" />
+            <state relative-caret-position="-7">
+              <caret line="43" column="79" selection-start-line="43" selection-start-column="9" selection-end-line="43" selection-end-column="79" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#1109#1110#0" expanded="true" />
@@ -78,8 +109,8 @@
       <file leaf-file-name="AddInvoice.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/AddInvoice.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="51">
-              <caret line="6" column="76" selection-start-line="6" selection-start-column="76" selection-end-line="6" selection-end-column="76" />
+            <state relative-caret-position="962">
+              <caret line="78" column="41" selection-start-line="78" selection-start-column="41" selection-end-line="78" selection-end-column="41" />
               <folding />
             </state>
           </provider>
@@ -107,8 +138,8 @@
       <file leaf-file-name="GUI.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/GUI.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="928">
-              <caret line="111" column="61" selection-start-line="111" selection-start-column="61" selection-end-line="111" selection-end-column="61" />
+            <state relative-caret-position="442">
+              <caret line="128" column="42" selection-start-line="128" selection-start-column="18" selection-end-line="128" selection-end-column="42" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -121,18 +152,6 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="136">
               <caret line="8" column="0" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="WrongData.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/WrongData.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="187">
-              <caret line="11" column="33" selection-start-line="11" selection-start-column="33" selection-end-line="11" selection-end-column="33" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -166,8 +185,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/Generator.java" />
-        <option value="$PROJECT_DIR$/src/AddInvoice.form" />
         <option value="$PROJECT_DIR$/invoice.txt" />
         <option value="$PROJECT_DIR$/invoice.in" />
         <option value="$PROJECT_DIR$/src/GUI.form" />
@@ -175,14 +192,16 @@
         <option value="$PROJECT_DIR$/src/OnEndReadingListener.java" />
         <option value="$PROJECT_DIR$/src/ReadyPanel.form" />
         <option value="$PROJECT_DIR$/src/Communication.java" />
-        <option value="$PROJECT_DIR$/src/AddInvoice.java" />
-        <option value="$PROJECT_DIR$/src/Invoice.java" />
         <option value="$PROJECT_DIR$/src/Display.java" />
         <option value="$PROJECT_DIR$/src/ReadyPanel.java" />
         <option value="$PROJECT_DIR$/src/WrongData.java" />
         <option value="$PROJECT_DIR$/src/GUI.java" />
         <option value="$PROJECT_DIR$/src/Display.form" />
         <option value="$PROJECT_DIR$/src/Conf.java" />
+        <option value="$PROJECT_DIR$/src/Invoice.java" />
+        <option value="$PROJECT_DIR$/src/AddInvoice.form" />
+        <option value="$PROJECT_DIR$/src/AddInvoice.java" />
+        <option value="$PROJECT_DIR$/src/Generator.java" />
       </list>
     </option>
   </component>
@@ -273,6 +292,10 @@
               <option name="myItemId" value="src" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="WrongData" />
+              <option name="myItemType" value="com.intellij.uiDesigner.projectView.FormNode" />
+            </PATH_ELEMENT>
           </PATH>
           <PATH>
             <PATH_ELEMENT>
@@ -344,6 +367,20 @@
             <PATH_ELEMENT>
               <option name="myItemId" value="AddInvoice" />
               <option name="myItemType" value="com.intellij.uiDesigner.projectView.FormNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="projektIOIO" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="projektIOIO" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
         </subPane>
@@ -676,12 +713,20 @@
       <workItem from="1493125372742" duration="2350000" />
       <workItem from="1493127812240" duration="1485000" />
     </task>
+    <task id="LOCAL-00001" summary="Komentarze">
+      <created>1494875727265</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1494875727265</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
     <option name="totallyTimeSpent" value="3835000" />
   </component>
-  <component name="TodoView">
+  <component name="TodoView" selected-index="4">
     <todo-panel id="selected-file">
       <is-autoscroll-to-source value="true" />
     </todo-panel>
@@ -695,8 +740,8 @@
     <editor active="false" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3277592" sideWeight="0.49697885" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32887402" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3277592" sideWeight="0.49697885" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32887402" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32847896" sideWeight="0.5030211" order="7" side_tool="true" content_ui="tabs" />
@@ -706,7 +751,7 @@
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32998884" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2489339" sideWeight="0.47425896" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2489339" sideWeight="0.47425896" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32917318" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -741,7 +786,8 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Komentarze" />
-    <option name="LAST_COMMIT_MESSAGE" value="Komentarze" />
+    <MESSAGE value="Faktura" />
+    <option name="LAST_COMMIT_MESSAGE" value="Faktura" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1040,16 +1086,6 @@
     <entry file="jar://C:/Program Files/Java/jdk1.8.0_20/src.zip!/java/lang/String.java" />
     <entry file="file://$PROJECT_DIR$/invoice.txt" />
     <entry file="file://$PROJECT_DIR$/invoice.in" />
-    <entry file="file://$PROJECT_DIR$/src/AddInvoice.form">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-      <provider editor-type-id="ui-designer">
-        <state />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/GUI.form">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -1087,29 +1123,13 @@
         <state />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Generator.java">
+    <entry file="file://$PROJECT_DIR$/src/WrongData.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="7" column="8" selection-start-line="7" selection-start-column="8" selection-end-line="7" selection-end-column="8" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Communication.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="527">
-          <caret line="31" column="91" selection-start-line="31" selection-start-column="91" selection-end-line="31" selection-end-column="91" />
+        <state relative-caret-position="187">
+          <caret line="11" column="33" selection-start-line="11" selection-start-column="33" selection-end-line="11" selection-end-column="33" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/AddInvoice.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="51">
-          <caret line="6" column="76" selection-start-line="6" selection-start-column="76" selection-end-line="6" selection-end-column="76" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1117,16 +1137,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="163">
           <caret line="19" column="4" selection-start-line="19" selection-start-column="4" selection-end-line="19" selection-end-column="4" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/WrongData.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="11" column="33" selection-start-line="11" selection-start-column="33" selection-end-line="11" selection-end-column="33" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -1143,10 +1153,20 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/Communication.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-2676">
+          <caret line="18" column="22" selection-start-line="18" selection-start-column="22" selection-end-line="18" selection-end-column="22" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/Invoice.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="267">
-          <caret line="31" column="13" selection-start-line="31" selection-start-column="13" selection-end-line="31" selection-end-column="13" />
+        <state relative-caret-position="-7">
+          <caret line="43" column="79" selection-start-line="43" selection-start-column="9" selection-end-line="43" selection-end-column="79" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#1109#1110#0" expanded="true" />
@@ -1155,10 +1175,20 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/AddInvoice.form">
+      <provider editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+      <provider selected="true" editor-type-id="ui-designer">
+        <state />
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/GUI.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="928">
-          <caret line="111" column="61" selection-start-line="111" selection-start-column="61" selection-end-line="111" selection-end-column="61" />
+        <state relative-caret-position="442">
+          <caret line="128" column="42" selection-start-line="128" selection-start-column="18" selection-end-line="128" selection-end-column="42" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -1178,12 +1208,31 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Conf.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="204">
-          <caret line="12" column="38" selection-start-line="12" selection-start-column="38" selection-end-line="12" selection-end-column="38" />
+        <state relative-caret-position="85">
+          <caret line="5" column="6" selection-start-line="5" selection-start-column="6" selection-end-line="5" selection-end-column="6" />
           <folding>
             <element signature="e#385#386#0" expanded="true" />
             <element signature="e#414#415#0" expanded="true" />
+            <element signature="e#454#455#0" expanded="true" />
             <element signature="e#484#485#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/AddInvoice.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="962">
+          <caret line="78" column="41" selection-start-line="78" selection-start-column="41" selection-end-line="78" selection-end-column="41" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Generator.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="867">
+          <caret line="51" column="0" selection-start-line="51" selection-start-column="0" selection-end-line="51" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
