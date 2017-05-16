@@ -146,10 +146,11 @@ public class Invoice implements EndReadingObservable{
             }
             String line;
             String[] data;
-            Object[][] dataTable = new Object[Conf.getAmount()][8];
+            Object[][] dataTable;
 
             while(sending) {
                 int i = 0;
+                dataTable = new Object[Conf.getAmount()][8];
                 while(i<Conf.getAmount()){
                    try {
                       line = scanner.nextLine();
@@ -161,8 +162,6 @@ public class Invoice implements EndReadingObservable{
                    try {
                       int clientID = Integer.valueOf(data[8].substring(6, data[8].length()));
                       float percent = Float.valueOf(data[7].substring(0, data[7].length() - 1)) / 100;
-
-                      // TODO: clientID jest opcjonalne
 
                       dataTable[i][0] = data[4];
                       dataTable[i][1] = Float.parseFloat(data[6]);
@@ -183,7 +182,7 @@ public class Invoice implements EndReadingObservable{
 
                    i++;
                 }
-                if(sending) new Communication().sendManyData(dataTable);
+                new Communication().sendManyData(dataTable);
             }
             System.out.println("READY");
             onEndReadingListener.endReading();

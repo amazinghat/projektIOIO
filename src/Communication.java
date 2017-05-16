@@ -104,7 +104,8 @@ public class Communication {
                 connection.setAutoCommit(false);
                 Statement statement = connection.createStatement();
 
-                for(int i=0;i<Conf.getAmount();i++) {
+                for(int i=0;i<dt.length;i++) {
+                    if(dt[i][7]==null) break;
                     String data = "(" + "'" + dt[i][0] + "'" + "," + String.valueOf(dt[i][1]) + "," + String.valueOf(dt[i][2]) + "," + String.valueOf(dt[i][3]) + "," + String.valueOf(dt[i][4]) + "," + "'" + dt[i][5] + "'" + "," + "'" + dt[i][6] + "'" + "," + "'" + dt[i][7] + "'" + ")";
                     statement.executeUpdate("INSERT INTO data VALUES " + data);
                 }
