@@ -58,12 +58,12 @@ public class Invoice implements EndReadingObservable{
             zapis.println();
 
             if(raport[i][5].equals("income")){
-               iloscIncome++;
+               ++iloscIncome;
                przychod = przychod + Float.parseFloat(raport[i][2]);
                podatekinc = podatekinc + Float.parseFloat(raport[i][3]) * Float.parseFloat(raport[i][2]);
             }
             else if(raport[i][5].equals("outcome")){
-               iloscOutcome++;
+               ++iloscOutcome;
                wydatek = wydatek + Float.parseFloat(raport[i][2]);
                podatekout = podatekout + Float.parseFloat(raport[i][3]) * Float.parseFloat(raport[i][2]);
             }
@@ -176,9 +176,9 @@ public class Invoice implements EndReadingObservable{
                       System.out.println("Błędne dane");
                       JFrame frame = new JFrame("ERROR");
                       frame.setContentPane(new WrongData(frame).getWrongData());
+                      frame.setLocationRelativeTo(null);
                       frame.pack();
                       frame.setVisible(true);
-                      frame.setLocationRelativeTo(null);
                    }
 
                    i++;

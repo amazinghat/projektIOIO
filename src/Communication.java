@@ -208,4 +208,21 @@ public class Communication {
         }
     }
 
+    public void setAmount(){
+        waitForAllow();
+        try {
+            Connection connection = DriverManager.getConnection("jdbc:sqlite:projektIOIO");
+
+            Statement statement = connection.createStatement();
+
+            ResultSet rs = statement.executeQuery("SELECT Count(*) FROM data");
+            Invoice.setCurrentAmount(rs.getInt(1));
+
+            connection.close();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        allow = true;
+    }
+
 }

@@ -26,6 +26,8 @@ public class GUI implements OnEndReadingListener{
     public GUI() {
         stopButton.setEnabled(false);
 
+        new Communication().setAmount();
+
         // ---------------------- Listenery do poszczególnych przycisków GUI --------------------------------
 
         addInvoice.addActionListener(new ActionListener() {
@@ -123,6 +125,7 @@ public class GUI implements OnEndReadingListener{
         frame.setContentPane(new ReadyPanel(frame).getReadyPanel());
         frame.pack();
         frame.setVisible(true);
+        frame.setLocationRelativeTo(null);
     }
 
     // ----------------------------------------------- MAIN ---------------------------------------------
