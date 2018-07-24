@@ -9,14 +9,17 @@ Here is some text explaining some very complicated stuff::
     print 'hello'
     >> hello
 
-Guide
-^^^^^
+.. warning::but this code is very deadly!
 
 .. toctree::
    :maxdepth: 2
-
-   license
+   
+   section1
+   section2
+   section3
    help
+   contact
+   license
 
 
 Indices and tables
